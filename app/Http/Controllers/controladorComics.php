@@ -14,6 +14,14 @@ class controladorComics extends Controller
         return view('registrarUsuario');
     }
 
+    public function editarU(){
+        return view('editarUsuario');
+    }
+
+    public function casita(){
+        return view('home');
+    }
+
     /**
      * Display a listing of the resource.
      *
