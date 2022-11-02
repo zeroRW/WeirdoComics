@@ -1,1 +1,4 @@
-hola
+@extends('template')
+@section('desarrollo')
+    
+@endsection
