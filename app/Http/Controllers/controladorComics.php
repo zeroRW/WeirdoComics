@@ -9,6 +9,11 @@ class controladorComics extends Controller
     public function loginInicio(){
         return view('login');
     }
+
+    public function registrarUser(){
+        return view('registrarUsuario');
+    }
+
     /**
      * Display a listing of the resource.
      *
