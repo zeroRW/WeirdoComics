@@ -1,4 +1,5 @@
 @extends('Plantilla')
+
 @section('codigo')
 
 <div class="col-md-6 offset-md-3 mt-5">
@@ -53,5 +54,5 @@
         </form>
     </div>
 </div>
-
+    
 @endsection
