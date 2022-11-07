@@ -22,6 +22,34 @@ class controladorComics extends Controller
         return view('home');
     }
 
+    public function registrarComic(){
+        return view('registrarComic');
+    }
+
+    public function editarComic(){
+        return view('editarComic');
+    }
+
+    public function consultarComic(){
+        return view('consultarComic');
+    }
+
+    public function registrarArticulo(){
+        return view('registrarArticulo');
+    }
+
+    public function editarArticulo(){
+        return view('editarArticulo');
+    }
+
+    public function consultarArticulo(){
+        return view('consultarArticulo');
+    }
+
+    public function registrarProveedor(){
+        return view('registrarProveedor');
+    }
+
     /**
      * Display a listing of the resource.
      *

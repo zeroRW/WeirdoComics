@@ -36,12 +36,12 @@
         <div class="container-menu">
             <div class="cont-menu">
                 <nav>
-                    <a href="#">Registro Comics</a>
-                    <a href="#">Articulos</a>
-                    <a href="#">Consulta Comics</a>
-                    <a href="#">Consulta Articulos</a>
+                    <a href="{{route ('comic')}}">Registro Comics</a>
+                    <a href="{{route ('articulo')}}">Articulos</a>
+                    <a href="{{route ('consuComic')}}">Consulta Comics</a>
+                    <a href="{{route ('consuArt')}}">Consulta Articulos</a>
                     <a href="#">Ventas</a>
-                    <a href="#">Proveedores</a>
+                    <a href="{{route ('proveedor')}}">Proveedores</a>
                     <a href="#">Pedidos</a>
                     <a class="fw-bold" href="/">LOG OUT</a>
                 </nav>
