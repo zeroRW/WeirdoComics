@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controladorComics;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+/* RUTAS DE INDEX, REGISTRO Y INICIO */
+Route::get('/',[controladorComics::class,'loginInicio'])->name('Inicio');
+Route::get('registrarU',[controladorComics::class,'registrarUser'])->name('user');
+Route::get('editarUsu',[controladorComics::class,'editarU'])->name('editUsu');
+Route::get('inicio',[controladorComics::class,'casita'])->name('homeInicio');
+
+
