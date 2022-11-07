@@ -3,7 +3,7 @@
 
 <div class="col-md-6 offset-md-3 mt-5">
     <div class="card card-body">
-        <div class="display-6 mt-3 mb-3 text-center">Registrar Comics</div>
+        <div class="display-6 mt-3 mb-3 text-center">Registrar Articulo</div>
 
         <!-- Creacion del Formulario -->
         <form action="" method="">
