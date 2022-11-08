@@ -34,6 +34,7 @@ Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name(
 Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
 Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->name('consuProv');
 Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
+Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
 
 
 
