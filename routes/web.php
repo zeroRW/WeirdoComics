@@ -33,6 +33,8 @@ Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editA
 Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
 Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
 Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->name('consuProv');
+Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
+
 
 
 /* RUTA VENTAS */
