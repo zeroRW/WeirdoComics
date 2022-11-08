@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class controladorComics extends Controller
 {
+    /* FUNCIONES DE LOGIN */
+
     public function loginInicio(){
         return view('login');
     }
@@ -21,6 +23,8 @@ class controladorComics extends Controller
     public function casita(){
         return view('home');
     }
+
+    /* FUNCIONES DE PLANTILLA */
 
     public function registrarComic(){
         return view('registrarComic');
@@ -49,6 +53,11 @@ class controladorComics extends Controller
     public function registrarProveedor(){
         return view('registrarProveedor');
     }
+
+    public function vistaVenta(){
+        return view('ventas');
+    }
+
 
     /**
      * Display a listing of the resource.

@@ -30,6 +30,9 @@
                 </a>
             </div>
         </header>
+        <form class="d-flex">
+            <img class="car" src="{{asset('img/carrito.png')}}" width="50" height="50" alt="carrito">
+        </form>
       </nav>
 
       <div class="capa"></div>
@@ -37,13 +40,14 @@
         <div class="container-menu">
             <div class="cont-menu">
                 <nav>
+                    <a href="{{route ('homeInicio')}}">Inicio</a>
                     <a href="{{route ('comic')}}">Registro Comics</a>
                     <a href="{{route ('articulo')}}">Registrar Articulos</a>
                     <a href="{{route ('consuComic')}}">Consulta Comics</a>
                     <a href="{{route ('consuArt')}}">Consulta Articulos</a>
                     <a href="{{route ('proveedor')}}">Proveedores</a>
                     <a href="#">Pedidos</a>
-                    <a href="#">Ventas</a>
+                    <a href="{{route ('Vventas')}}">Ventas</a>
                     <a class="fw-bold" href="/">LOG OUT</a>
                 </nav>
                 

@@ -36,6 +36,11 @@ body{
     margin-right: 20px;
 }
 
+.car{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
 div.logo {
     width: 60%;
     padding: 5px;
