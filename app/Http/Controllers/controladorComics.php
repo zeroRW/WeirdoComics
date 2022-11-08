@@ -57,6 +57,10 @@ class controladorComics extends Controller
         return view('registrarProveedor');
     }
 
+    public function consultarProveedor(){
+        return view('consultarProveedor');
+    }
+
     public function vistaVenta(){
         return view('ventas');
     }
