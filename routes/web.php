@@ -32,6 +32,11 @@ Route::get('registrarArt',[controladorComics::class,'registrarArticulo'])->name(
 Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
 Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
 Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
+Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->name('consuProv');
+Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
+Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
+
+
 
 /* RUTA VENTAS */
 Route::get('vventa',[controladorComics::class,'vistaVenta'])->name('Vventas');
