@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadorComics;
+use App\Http\Requests\validadorEditComic;
+use App\Http\Requests\validadorArticulos;
+use App\Http\Requests\validadorEditArticulo;
+use App\Http\Requests\validadorProveedores;
 
 class controladorComics extends Controller
 {
