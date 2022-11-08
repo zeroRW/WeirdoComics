@@ -25,11 +25,11 @@ class controladorComics extends Controller
         return view('home');
     }
 
-    public function registrarComic(validadorComics $reqCom){
+    public function registrarComic(){
         return view('registrarComic');
     }
 
-    public function editarComic(validadorComics $reqEditCom){
+    public function editarComic(){
         return view('editarComic');
     }
 
@@ -37,11 +37,11 @@ class controladorComics extends Controller
         return view('consultarComic');
     }
 
-    public function registrarArticulo(validadorArticulos $reqArt){
+    public function registrarArticulo(){
         return view('registrarArticulo');
     }
 
-    public function editarArticulo(validadorArticulos $reqEditArt){
+    public function editarArticulo(){
         return view('editarArticulo');
     }
 
@@ -49,7 +49,7 @@ class controladorComics extends Controller
         return view('consultarArticulo');
     }
 
-    public function registrarProveedor(validadorProveedores $reqProv){
+    public function registrarProveedor(){
         return view('registrarProveedor');
     }
 
