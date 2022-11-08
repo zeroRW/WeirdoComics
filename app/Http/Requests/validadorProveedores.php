@@ -24,7 +24,13 @@ class validadorProveedores extends FormRequest
     public function rules()
     {
         return [
-            //
+            'txtEmpresa' => 'required',
+            'txtDireccion' => 'required',
+            'txtPais' => 'required',
+            'txtContacto' => 'required',
+            'txtNumero' => 'required|numeric|Digits_between:13,num',
+            'txtCelular' => 'required|numeric|Digits_between:13,num',
+            'txtCorreo' => 'required|email',
         ];
     }
 }

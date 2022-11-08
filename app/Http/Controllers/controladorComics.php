@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorComics;
-use App\Http\Requests\validadorEditComic;
 use App\Http\Requests\validadorArticulos;
-use App\Http\Requests\validadorEditArticulo;
 use App\Http\Requests\validadorProveedores;
 
 class controladorComics extends Controller
@@ -27,11 +25,11 @@ class controladorComics extends Controller
         return view('home');
     }
 
-    public function registrarComic(){
+    public function registrarComic(validadorComics $reqCom){
         return view('registrarComic');
     }
 
-    public function editarComic(){
+    public function editarComic(validadorComics $reqEditCom){
         return view('editarComic');
     }
 
@@ -39,11 +37,11 @@ class controladorComics extends Controller
         return view('consultarComic');
     }
 
-    public function registrarArticulo(){
+    public function registrarArticulo(validadorArticulos $reqArt){
         return view('registrarArticulo');
     }
 
-    public function editarArticulo(){
+    public function editarArticulo(validadorArticulos $reqEditArt){
         return view('editarArticulo');
     }
 
@@ -51,7 +49,7 @@ class controladorComics extends Controller
         return view('consultarArticulo');
     }
 
-    public function registrarProveedor(){
+    public function registrarProveedor(validadorProveedores $reqProv){
         return view('registrarProveedor');
     }
 
