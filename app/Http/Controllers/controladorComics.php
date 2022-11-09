@@ -24,11 +24,9 @@ class controladorComics extends Controller
         return view('editarUsuario');
     }
 
-    public function casita(){
-        return view('home');
-    }
+    
 
-    /* FUNCIONES DE PLANTILLA */
+    /* FUNCIONES DE PLANTILLA USUARIO VENTA */
 
     public function registrarComic(){
         return view('registrarComic');
@@ -69,10 +67,11 @@ class controladorComics extends Controller
     public function levantamientoPedido(){
         return view('levantamiento');
     }
-    
+
     public function vistaVenta(){
         return view('ventas');
     }
+
 
     //Validaciones Articulo
     public function procesarArticulo(validadorArticulos $req){
@@ -88,8 +87,49 @@ class controladorComics extends Controller
      public function procesarPedido(validador_Pedidos $req){
 
         return redirect('levantamiento')->with('Success','Correcto');
+
+    public function vistaCarrito(){
+        return view('carritoVenta');
     }
 
+    /* FUNCION USUARIO VENDEDOR */
+
+    public function ConComicUVenta(){
+        return view('ConsultarComicUV');
+    }
+
+    public function ConArtUVenta(){
+        return view('ConsultarArticuloUV');
+    }
+
+    public function ventaUV(){
+        return view('ventasUV');
+    }
+
+    public function casita(){
+            return view('home');
+        }
+
+
+    /*Rutas para procesar formularios campos*/
+    
+    public function procesarComic(validadorComics $req){
+        return redirect('registrarCom') -> with('confirmacion','Envio correcto');
+    }
+    
+    public function procesarEditComic(validadorComics $req){
+        return redirect('consultarCom') -> with('actualizacion','Envio correcto');
+
+    }
+
+    public function procesarProv(validadorProveedores $req){
+        return redirect('registrarProv') -> with('confirmacion','Envio correcto');
+    }    
+
+    public function procesarEditProv(validadorProveedores $req){
+        return redirect('consultarProv') -> with('actualizacion','Envio correcto');
+    }
+    
     /**
      * Display a listing of the resource.
      *

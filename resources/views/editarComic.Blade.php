@@ -7,7 +7,8 @@
         <div class="display-6 mt-3 mb-3 text-center">Registrar Comics</div>
         <!-- Creacion del Formulario -->
 
-        <form action="" method="">
+        <form action="actualizarComic" method="POST">
+            @csrf
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre:</label>
                 <div class="col-sm-10">

@@ -1,13 +1,6 @@
-@extends('Plantilla')
-@section('codigo')
+@extends('plantillaVendedor')
+@section('usuarioVenta')
     
-@if (session() -> has('actualizacion'))
-
-<script type="text/javascript">    
-
-</script>
-@endif
-
 <div class="container mt-5">
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
@@ -29,7 +22,6 @@
                 <th scope="col">($) Compra</th>
                 <th scope="col">($) venta</th>
                 <th scope="col">Fecha</th>
-                <th scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody>

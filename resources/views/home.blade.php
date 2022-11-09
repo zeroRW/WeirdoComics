@@ -1,5 +1,5 @@
-@extends('plantilla')
-@section('codigo')
+@extends('plantillaVendedor')
+@section('usuarioVenta')
     
     <h1>Hola</h1>
 
