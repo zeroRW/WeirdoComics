@@ -35,6 +35,13 @@ Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->nam
 Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
 Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
 
+//Validador articulos
+Route::post('guardarArt',[controladorComics::class, 'procesarArticulo'])->name('saveArt');
+Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
+
+
+//Validador pedido
+Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
 
 /* RUTA USUARIO VENTAS */
 Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('comic');
@@ -46,6 +53,7 @@ Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 /* RUTA VISTA VENTA */
 Route::get('vventa',[controladorComics::class,'vistaVenta'])->name('Vventas');
 Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
+
 
 /* RUTAS POST*/
 Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GComic');

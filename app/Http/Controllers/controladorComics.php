@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorComics;
 use App\Http\Requests\validadorArticulos;
+use App\Http\Requests\validador_Pedidos;
 use App\Http\Requests\validadorProveedores;
 
 class controladorComics extends Controller
@@ -71,6 +72,22 @@ class controladorComics extends Controller
         return view('ventas');
     }
 
+
+    //Validaciones Articulo
+    public function procesarArticulo(validadorArticulos $req){
+
+        return redirect('registrarArt')->with('Success','Correcto');
+    }
+    public function procesarUpdArticulo(validadorArticulos $req){
+
+        return redirect('consultarArt')->with('Success','Correcto');
+    }
+
+     //Validaciones Pedidos
+     public function procesarPedido(validador_Pedidos $req){
+
+        return redirect('levantamiento')->with('Success','Correcto');
+
     public function vistaCarrito(){
         return view('carritoVenta');
     }
@@ -102,6 +119,7 @@ class controladorComics extends Controller
     
     public function procesarEditComic(validadorComics $req){
         return redirect('consultarCom') -> with('actualizacion','Envio correcto');
+
     }
 
     public function procesarProv(validadorProveedores $req){
