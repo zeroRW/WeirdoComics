@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('estilos.css')}}">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <style>
+   <!-- <style>
 
         body{
             background-image: url(https://pa1.narvii.com/7577/17f86bd98f5d9f0c6ebe4830835a2491cbfe0eb3r4-480-270_00.gif);
@@ -19,9 +19,10 @@
         }
 
     </style>
+    --> 
 
 </head>
-<body>
+<body background="{{asset('img/fondo.jpg')}}">
     
     @yield('desarrollo')
 
