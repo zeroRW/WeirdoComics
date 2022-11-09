@@ -93,6 +93,24 @@ class controladorComics extends Controller
             return view('home');
         }
 
+
+    /*Rutas para procesar formularios campos*/
+    
+    public function procesarComic(validadorComics $req){
+        return redirect('registrarCom') -> with('confirmacion','Envio correcto');
+    }
+    
+    public function procesarEditComic(validadorComics $req){
+        return redirect('consultarCom') -> with('actualizacion','Envio correcto');
+    }
+
+    public function procesarProv(validadorProveedores $req){
+        return redirect('registrarProv') -> with('confirmacion','Envio correcto');
+    }    
+
+    public function procesarEditProv(validadorProveedores $req){
+        return redirect('consultarProv') -> with('actualizacion','Envio correcto');
+    }
     
     /**
      * Display a listing of the resource.

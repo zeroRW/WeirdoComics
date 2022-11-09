@@ -46,3 +46,9 @@ Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 /* RUTA VISTA VENTA */
 Route::get('vventa',[controladorComics::class,'vistaVenta'])->name('Vventas');
 Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
+
+/* RUTAS POST*/
+Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GComic');
+Route::post('actualizarComic',[controladorComics::class,'procesarEditComic']) ->name('GEComic');
+Route::post('guardaProv',[controladorComics::class,'procesarProv']) ->name('GProv');
+Route::post('actualizarProv',[controladorComics::class,'procesarEditProv']) ->name('GEProv');

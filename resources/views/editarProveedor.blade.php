@@ -6,7 +6,8 @@
         <div class="display-6 mt-3 mb-3 text-center">Registrar Proveedor</div>
 
         <!-- Creacion del Formulario -->
-        <form action="" method="">
+        <form action="actualizarProv" method="POST">
+            @csrf
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Empresa:</label>
                 <div class="col-sm-10">
