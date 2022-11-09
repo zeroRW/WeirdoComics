@@ -4,7 +4,11 @@
 @if (session() -> has('actualizacion'))
 
 <script type="text/javascript">    
-
+    Swal.fire(
+            'Todo correcto!',
+            'Proveedor Actualizado!',
+            'success'
+            )
 </script>
 @endif
 

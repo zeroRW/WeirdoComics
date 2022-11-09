@@ -87,6 +87,7 @@ class controladorComics extends Controller
      public function procesarPedido(validador_Pedidos $req){
 
         return redirect('levantamiento')->with('Success','Correcto');
+     }
 
     public function vistaCarrito(){
         return view('carritoVenta');
