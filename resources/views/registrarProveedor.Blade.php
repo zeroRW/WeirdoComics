@@ -1,6 +1,13 @@
 @extends('Plantilla')
 @section('codigo')
 
+@if (session() -> has('confirmacion'))
+
+<script type="text/javascript">    
+
+</script>
+@endif
+
 <div class="col-md-6 offset-md-3 mt-5">
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Registrar Proveedor</div>

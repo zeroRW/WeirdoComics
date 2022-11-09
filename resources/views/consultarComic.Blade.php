@@ -1,6 +1,13 @@
 @extends('Plantilla')
 @section('codigo')
     
+@if (session() -> has('actualizacion'))
+
+<script type="text/javascript">    
+
+</script>
+@endif
+
 <div class="container mt-5">
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
