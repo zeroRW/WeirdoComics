@@ -13,7 +13,7 @@ class validadorRegistroUsuario extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class validadorRegistroUsuario extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombreUser'=>'required',
+            'matricula'=>'required|min:9|max:9',
+            'roles'=>'required|in:Vendedor,Super Usuario',
         ];
     }
 }
