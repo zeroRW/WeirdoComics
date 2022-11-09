@@ -96,19 +96,19 @@ class controladorComics extends Controller
 
     /*Rutas para procesar formularios campos*/
     
-    public function ProcesarComic(validadorComics $req){
+    public function procesarComic(validadorComics $req){
         return redirect('registrarCom') -> with('confirmacion','Envio correcto');
     }
     
-    public function ProcesarEditComic(validadorComics $req){
+    public function procesarEditComic(validadorComics $req){
         return redirect('consultarCom') -> with('actualizacion','Envio correcto');
     }
 
-    public function ProcesarProv(validadorProveedores $req){
+    public function procesarProv(validadorProveedores $req){
         return redirect('registrarProv') -> with('confirmacion','Envio correcto');
     }    
 
-    public function ProcesarEditProv(validadorProveedores $req){
+    public function procesarEditProv(validadorProveedores $req){
         return redirect('consultarProv') -> with('actualizacion','Envio correcto');
     }
     
