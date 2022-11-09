@@ -7,7 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>WEIRDO COMICS</title>
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/626/626610.png">
-    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('estilos.css')}}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+
+        body{
+            background-image: url(https://pa1.narvii.com/7577/17f86bd98f5d9f0c6ebe4830835a2491cbfe0eb3r4-480-270_00.gif);
+            background-position: center 35%;
+            background-size: cover;
+        }
+
+    </style>
+
 </head>
 <body>
     
