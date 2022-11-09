@@ -92,6 +92,9 @@ div.logo {
 .cont-menu nav{
     transform: translateY(15%);
 }
+
+
+
 .cont-menu nav a{
     display: block;
     text-decoration: none;
@@ -100,6 +103,11 @@ div.logo {
     border-left: 5px solid transparent;
     transition: all 400ms ease;
 }
+
+.cont-menu nav .icono{
+    margin-right: 20px;
+}
+
 .cont-menu nav a:hover{
     border-left: 5px solid #c7c7c7;
     background: orange;

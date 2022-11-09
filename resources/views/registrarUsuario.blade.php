@@ -22,8 +22,8 @@
                 <label class="input-group-text" for="inputGroupSelect01">Options</label>
                 <select class="form-select" id="inputGroupSelect01">
                   <option selected>Selecciona un rol...</option>
-                  <option value="1">Admin</option>
-                  <option value="2">Super Admin</option>
+                  <option value="1">Vendedor</option>
+                  <option value="2">Super Usuario</option>
                 </select>
               </div> 
               <div class="input-group mb-3" role="search">
