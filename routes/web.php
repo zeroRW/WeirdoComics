@@ -36,6 +36,9 @@ Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->nam
 Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
 Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
 
+//Validador articulos
+Route::post('guardarArt',[controladorComics::class, 'procesarArticulo'])->name('saveArt');
+Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
 
 
 /* RUTA VENTAS */

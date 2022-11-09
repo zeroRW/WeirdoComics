@@ -73,6 +73,15 @@ class controladorComics extends Controller
         return view('ventas');
     }
 
+    //Validaciones Articulo
+    public function procesarArticulo(validadorArticulos $req){
+
+        return redirect('registrarArt')->with('Success','Correcto');
+    }
+    public function procesarUpdArticulo(validadorArticulos $req){
+
+        return redirect('consultarArt')->with('Success','Correcto');
+    }
 
     /**
      * Display a listing of the resource.

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/626/626610.png">
+    <!--SweatAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 <body>
 
