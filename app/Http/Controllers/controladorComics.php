@@ -23,11 +23,9 @@ class controladorComics extends Controller
         return view('editarUsuario');
     }
 
-    public function casita(){
-        return view('home');
-    }
+    
 
-    /* FUNCIONES DE PLANTILLA */
+    /* FUNCIONES DE PLANTILLA USUARIO VENTA */
 
     public function registrarComic(){
         return view('registrarComic');
@@ -68,12 +66,34 @@ class controladorComics extends Controller
     public function levantamientoPedido(){
         return view('levantamiento');
     }
-    
+
     public function vistaVenta(){
         return view('ventas');
     }
 
+    public function vistaCarrito(){
+        return view('carritoVenta');
+    }
 
+    /* FUNCION USUARIO VENDEDOR */
+
+    public function ConComicUVenta(){
+        return view('ConsultarComicUV');
+    }
+
+    public function ConArtUVenta(){
+        return view('ConsultarArticuloUV');
+    }
+
+    public function ventaUV(){
+        return view('ventasUV');
+    }
+
+    public function casita(){
+            return view('home');
+        }
+
+    
     /**
      * Display a listing of the resource.
      *

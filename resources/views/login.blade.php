@@ -27,10 +27,7 @@
               <div class="d-grid">
                 <button type="submit" class="btn btn-outline-primary">Registrar Usuario</button>
               </div>
-              <br>
-              <div class="my-3">
-                <span>¿No tienes cuenta? <a href="{{route('user')}}" class="nav-link " ><font color="blue">Resgistrate</font></a></span>
-              </div>
+              
           </form>
   
       </div>
