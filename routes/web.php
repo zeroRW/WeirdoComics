@@ -25,7 +25,7 @@ Route::get('editarUsu',[controladorComics::class,'editarU'])->name('editUsu');
 Route::get('inicio',[controladorComics::class,'casita'])->name('homeInicio');
 
 /* RUTAS PLANTILLAS Y SUPER USUARIO*/
-Route::get('registrarCom',[controladorComics::class,'editarComic'])->name('editComic');
+Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('editComic');
 Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('consuComic');
 Route::get('registrarArt',[controladorComics::class,'registrarArticulo'])->name('articulo');
 Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
