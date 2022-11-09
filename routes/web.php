@@ -40,6 +40,8 @@ Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->na
 Route::post('guardarArt',[controladorComics::class, 'procesarArticulo'])->name('saveArt');
 Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
 
+//Validador pedido
+Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
 
 /* RUTA VENTAS */
 Route::get('vventa',[controladorComics::class,'vistaVenta'])->name('Vventas');
