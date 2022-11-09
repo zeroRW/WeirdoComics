@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\validadorComics;
 use App\Http\Requests\validadorArticulos;
 use App\Http\Requests\validador_Pedidos;
+use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorProveedores;
+use App\Http\Requests\validadorRegistroUsuario;
 
 class controladorComics extends Controller
 {
@@ -24,7 +26,15 @@ class controladorComics extends Controller
         return view('editarUsuario');
     }
 
-    
+    /*VALIDADOR LOGIN Y REGISTRAR USUARIO */
+
+    public function procesoLogin(validadorLogin $req){
+        return redirect('/')->with('Success','Correcto');
+    }
+
+    public function procesoUsuario(validadorRegistroUsuario $req){
+        return redirect('registrarUsuario')->with('Success','Correcto');
+    }
 
     /* FUNCIONES DE PLANTILLA USUARIO VENTA */
 
