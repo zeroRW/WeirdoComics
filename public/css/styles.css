@@ -1,15 +1,11 @@
-body{
-    background: #E44D26;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 body{
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
-    background: #E44D26;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #41295a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2F0743, #41295a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2F0743, #41295a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .capa{
     position: fixed;
@@ -98,7 +94,7 @@ div.logo {
 .cont-menu nav a{
     display: block;
     text-decoration: none;
-    padding: 20px;
+    padding: 15px;
     color: black;
     border-left: 5px solid transparent;
     transition: all 400ms ease;
