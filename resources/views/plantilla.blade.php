@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/658c27c3ed.js" crossorigin="anonymous"></script>   
     <title>WEIRDO COMICS</title>
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     
@@ -18,17 +19,17 @@
 
     <!--NAVBAR-->
 
-    <nav class="navbar bg-light">
+    <nav class="navbar bg-dark">
         <header class="header">
             <div class="container">
                 <div class="btn-menu">
-                    <label style="color: black " for="btn-menu">☰</label>
+                    <label style="color: white " for="btn-menu">☰</label>
                 </div>
                 <a class="navbar-brand" href="#">
                     <div class="logo">
                         <img class="izq" src="https://cdn-icons-png.flaticon.com/512/626/626610.png" width="70" height="70" alt="">
                         <aside>
-                            <h1 style="color: black">Weirdo Comics</h1>
+                            <h1>Weirdo Comics</h1>
                         </aside>
                     </div>
                 </a>
@@ -36,7 +37,7 @@
         </header>
         <form class="d-flex">
             <a href="{{route ('CaVen')}}">
-                <img class="car" src="{{asset('img/carrito.png')}}" width="50" height="50" alt="carrito">
+                <img class="car" style="color: white" src="{{asset('img/carrito.png')}}" width="50" height="50" alt="carrito">
             </a>
         </form>
       </nav>
@@ -64,5 +65,6 @@
     @yield('codigo')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="{{asset('estilo.js')}}"></script>
 </body>
 </html>
