@@ -12,6 +12,7 @@
     <!--SweatAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+
 </head>
 <body>
 
@@ -46,13 +47,13 @@
             <div class="cont-menu">
                 <nav>
                     <a href="{{route ('comic')}}"><img src="{{asset('img/iconoRegisComic.png')}}" width="40" height="40" alt="">  Registro Comics</a>
-                    <a href="{{route ('articulo')}}">Registrar Articulos</a>
-                    <a href="{{route ('consuComic')}}">Consulta Comics</a>
-                    <a href="{{route ('consuArt')}}">Consulta Articulos</a>
-                    <a href="{{route ('proveedor')}}">Proveedores</a>
-                    <a href="{{route ('consuProv')}}">Consulta Proveedores</a>
-                    <a href="{{route ('levanPed')}}">Pedidos</a>
-                    <a href="{{route ('Vventas')}}">Ventas</a>
+                    <a href="{{route ('articulo')}}"><img src="{{asset('img/iconoArticulos.png')}}" width="40" height="40" alt=""> Registrar Articulos</a>
+                    <a href="{{route ('consuComic')}}"><img src="{{asset('img/iconoConComic.png')}}" width="40" height="40" alt=""> Consulta Comics</a>
+                    <a href="{{route ('consuArt')}}"><img src="{{asset('img/iconoConArt.png')}}" width="40" height="40" alt=""> Consulta Articulos</a>
+                    <a href="{{route ('proveedor')}}"><img src="{{asset('img/iconoPro.png')}}" width="40" height="40" alt=""> Proveedores</a>
+                    <a href="{{route ('consuProv')}}"><img src="{{asset('img/iconoConPro.png')}}" width="40" height="40" alt=""> Consulta Proveedores</a>
+                    <a href="{{route ('levanPed')}}"><img src="{{asset('img/iconoPedidos.png')}}" width="40" height="40" alt=""> Pedidos</a>
+                    <a href="{{route ('Vventas')}}"><img src="{{asset('img/iconoVeve.png')}}" width="40" height="40" alt=""> Ventas</a>
                     <a class="fw-bold" href="/">LOG OUT</a>
                 </nav>
                 
