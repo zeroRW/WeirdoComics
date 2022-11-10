@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\validadorComics;
+use App\Http\Requests\validadorComic;
 use App\Http\Requests\validadorArticulos;
 use App\Http\Requests\validador_Pedidos;
 use App\Http\Requests\validadorLogin;
-use App\Http\Requests\validadorProveedores;
+use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
 
 class controladorComics extends Controller
@@ -122,22 +122,22 @@ class controladorComics extends Controller
         }
 
 
-    /*Rutas para procesar formularios campos*/
+    /*Validador Comic y Proveedor*/
     
-    public function procesarComic(validadorComics $req){
+    public function procesarComic(validadorComic $req){
         return redirect('registrarCom') -> with('confirmacion','Envio correcto');
     }
     
-    public function procesarEditComic(validadorComics $req){
+    public function procesarEditComic(validadorComic $req){
         return redirect('consultarCom') -> with('actualizacion','Envio correcto');
 
     }
 
-    public function procesarProv(validadorProveedores $req){
+    public function procesarProv(validadorProveedor $req){
         return redirect('registrarProv') -> with('confirmacion','Envio correcto');
     }    
 
-    public function procesarEditProv(validadorProveedores $req){
+    public function procesarEditProv(validadorProveedor $req){
         return redirect('consultarProv') -> with('actualizacion','Envio correcto');
     }
     
