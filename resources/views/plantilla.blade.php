@@ -36,8 +36,11 @@
             </div>
         </header>
         <form class="d-flex">
+            <div class="re">
+                <a href="{{route('user')}}"><strong>Registrar Usuario</strong></a>
+            </div>
             <a href="{{route ('CaVen')}}">
-                <img class="car" style="color: white" src="{{asset('img/carrito.png')}}" width="50" height="50" alt="carrito">
+                <img class="car" style="color: white" src="{{asset('img/carrito2.png')}}" width="50" height="50" alt="carrito">
             </a>
         </form>
       </nav>

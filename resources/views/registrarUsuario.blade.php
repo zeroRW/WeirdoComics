@@ -69,7 +69,7 @@
             </div>
             <br>
             <div class="btn-group">
-                <a href="/" class="btn btn-secondary" style="color: white"> Regresar </a>
+                <a href="registrarCom" class="btn btn-secondary" style="color: white"> Regresar </a>
             </div>      
           </form>
     </div>
