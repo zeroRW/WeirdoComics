@@ -44,12 +44,18 @@ background: linear-gradient(to right, #2F0743, #41295a); /* W3C, IE 10+/ Edge, F
 .container .btn-menu label{
     font-size: 30px;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 .car{
-    margin-right: 20px;
+    margin-right: 30px;
     cursor: pointer;
+    margin: 20px;
+}
+
+.re{
+    margin: 28px;
+    margin-right: 20px;
 }
 
 div.logo {

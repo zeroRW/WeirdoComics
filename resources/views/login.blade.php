@@ -1,21 +1,6 @@
 @extends('template')
 @section('desarrollo')
 
-   <!-- Alert -->
-   @if (session()->has('Success'))
-  {!!
-      "<script> 
-          Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'PLUS ULTRAA!!!',
-          showConfirmButton: false,
-          timer: 1200
-          })
-      </script>"
-  !!}
-@endif
-
 
 <div class="container w-50 mt-5 rounded shadow">
     <div class="row align-items-stretch">
@@ -36,15 +21,15 @@
               <div class="mb-4">
                 <label for="text" style="color: white" class="form-label">Usuario</label>
                 <input type="text" class="form-control" name="usuario" value="{{old('usuario')}}">
-                <p class="text-danger">{{$errors->first('usuario')}}</p> 
+                <p class="text-danger"><strong>{{$errors->first('usuario')}}</strong></p> 
               </div>
               <div class="mb-4">
                 <label for="password" style="color: white" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password" value="{{old('password')}}">
-                <p class="text-danger">{{$errors->first('password')}}</p> 
+                <p class="text-danger"><strong>{{$errors->first('password')}}</strong></p> 
               </div>
               <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
               </div>
               
           </form>

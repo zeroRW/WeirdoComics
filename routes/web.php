@@ -64,3 +64,7 @@ Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GC
 Route::post('actualizarComic',[controladorComics::class,'procesarEditComic']) ->name('GEComic');
 Route::post('guardaProv',[controladorComics::class,'procesarProv']) ->name('GProv');
 Route::post('actualizarProv',[controladorComics::class,'procesarEditProv']) ->name('GEProv');
+
+/* redirec */
+
+Route::post('redireqInicio', [controladorComics::class, '']);

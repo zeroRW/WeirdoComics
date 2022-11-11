@@ -29,12 +29,14 @@ class controladorComics extends Controller
     /*VALIDADOR LOGIN Y REGISTRAR USUARIO */
 
     public function procesoLogin(validadorLogin $req){
-        return redirect('/')->with('Success','Correcto');
+        return redirect('registrarCom')->with('yes','Correcto');
     }
 
     public function procesoUsuario(validadorRegistroUsuario $req){
         return redirect('registrarUsuario')->with('Success','Correcto');
     }
+
+
 
     /* FUNCIONES DE PLANTILLA USUARIO VENTA */
 
@@ -141,6 +143,7 @@ class controladorComics extends Controller
         return redirect('consultarProv') -> with('actualizacion','Envio correcto');
     }
     
+
     /**
      * Display a listing of the resource.
      *
