@@ -59,12 +59,26 @@ class controladorBD extends Controller
 
     public function createArticulo()
     {
-        return view('registrarArticulo');
+        
     }
 
-    public function storeArticulo(validadorComic $request)
+    public function storeArticulo(validadorArticulos $request)
     {
-        //
+        /*
+        DB::table('tb_articulos') -> insert([
+            'tipo'=>$request->input('txtTipo'),
+            'marca'=>$request->input('txtMarca'),
+            'descripcion'=>$request->input('txtDescripcion'),
+            'cantidad'=>$request->input('txtCantidad'),
+            'precio_compra'=>$request->input('txtCompra'),
+            'precio_venta'=>$request->input('txtVenta'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(), 
+        ]);
+        */
+        
+
+        return redirect('registrarArt')->with('Success','Correcto');
     }
 
     public function showArticulo($id)
@@ -83,6 +97,67 @@ class controladorBD extends Controller
     }
 
     public function destroyArticulo($id)
+    {
+        //
+    }
+
+    /*          Funciones de Proveedores            */
+    public function indexProveedor()
+    {
+        $Proveedor=DB::table('tb_proveedores')->get();
+        return view("consultarProveedor",compact('Proveedor'));
+    }
+
+    public function createProveedor()
+    {
+        
+    }
+
+    public function storeProveedor(validadorProveedor $request)
+    {
+        DB::table('tb_proveedores') -> insert([
+            'empresa'=>$request->input('txtEmpresa'),
+            'direccion'=>$request->input('txtDireccion'),
+            'pais'=>$request->input('txtPais'),
+            'contacto'=>$request->input('txtContacto'),
+            'no_fijo'=>$request->input('txtNumero'),
+            'no_celu'=>$request->input('txtCelular'),
+            'correo'=>$request->input('txtCorreo'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('registrarProv') -> with('confirmacion','Envio correcto');
+    }
+
+    public function showProveedor($id)
+    {
+        
+    }
+
+    public function editProveedor($id)
+    {
+        $Proveedor=DB::table('tb_proveedores')->where('idProveedor',$id)->first();
+        return view('editarProveedor',compact('Proveedor'));
+    }
+
+    public function updateProveedor(validadorProveedor $request, $id)
+    {
+        DB::table('tb_proveedores') ->where('idProveedor',$id)-> update ([
+            'empresa'=>$request->input('txtEmpresa'),
+            'direccion'=>$request->input('txtDireccion'),
+            'pais'=>$request->input('txtPais'),
+            'contacto'=>$request->input('txtContacto'),
+            'no_fijo'=>$request->input('txtNumero'),
+            'no_celu'=>$request->input('txtCelular'),
+            'correo'=>$request->input('txtCorreo'),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('consultarProv') -> with('actualizacion','Envio correcto');
+    }
+
+    public function destroyProveedor($id)
     {
         //
     }
