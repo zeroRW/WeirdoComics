@@ -13,17 +13,17 @@
     
     <!--NAVBAR-->
 
-    <nav class="navbar bg-light">
+    <nav class="navbar bg-dark">
         <header class="header">
             <div class="container">
                 <div class="btn-menu">
-                    <label style="color: black " for="btn-menu">☰</label>
+                    <label style="color: white " for="btn-menu">☰</label>
                 </div>
                 <a class="navbar-brand" href="#">
                     <div class="logo">
                         <img class="izq" src="https://cdn-icons-png.flaticon.com/512/626/626610.png" width="70" height="70" alt="">
                         <aside>
-                            <h1 style="color: black">Weirdo Comics - Bienvenido</h1>
+                            <h1 style="color: black">Weirdo Comics - Selling</h1>
                         </aside>
                     </div>
                 </a>
@@ -31,7 +31,7 @@
         </header>
         <form class="d-flex">
             <a href="">
-                <img class="car" src="{{asset('img/carrito.png')}}" width="50" height="50" alt="carrito">
+                <img class="car" src="{{asset('img/carrito2.png')}}" width="50" height="50" alt="carrito">
             </a>
         </form>
       </nav>
@@ -55,6 +55,6 @@
     @yield('usuarioVenta')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
+    <script src="{{asset('estilo.js')}}"></script>
 </body>
 </html>

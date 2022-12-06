@@ -51,7 +51,7 @@ Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('sa
 
 /* RUTA USUARIO VENTAS */
 Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('comic');
-Route::get('CCUV', [controladorComics::class, 'ConComicUVenta'])->name('CCUV');
+Route::get('inicio2', [controladorComics::class, 'ConComicUVenta'])->name('CCUV');
 Route::get('CAUV', [controladorComics::class, 'ConArtUVenta'])->name('CAUV');
 Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 
