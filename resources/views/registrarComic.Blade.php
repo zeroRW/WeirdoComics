@@ -12,6 +12,20 @@
 </script>
 @endif
 
+@if (session()->has('yes'))
+{!!
+    "<script> 
+        Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Bienvenido',
+        showConfirmButton: false,
+        timer: 1200
+        })
+    </script>"
+!!}
+@endif
+
 <div class="col-md-6 offset-md-3 mt-5">
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Registrar Comics</div>

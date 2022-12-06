@@ -1,6 +1,6 @@
 @extends('plantilla')
 @section('codigo')
-<div class="display-6 mt-3 mb-3 text-center"><strong>LEVANTAMIENTO DE PEDIDOS</strong></div>
+<div class="display-6 mt-3 mb-3 text-center" style="color: white"><strong>LEVANTAMIENTO DE PEDIDOS</strong></div>
 
 <div class="container mt-3">
 

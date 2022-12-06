@@ -10,22 +10,25 @@
     <link rel="stylesheet" href="{{asset('estilos.css')}}">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-   <!-- <style>
+    <style>
 
         body{
-            background-image: url(https://pa1.narvii.com/7577/17f86bd98f5d9f0c6ebe4830835a2491cbfe0eb3r4-480-270_00.gif);
-            background-position: center 35%;
+            background-image: url(https://i.pinimg.com/originals/7a/61/fe/7a61fe192013a896351c2a315238a36e.gif);
+            background-position: center 10%;
             background-size: cover;
         }
 
     </style>
-    --> 
+    
 
 </head>
-<body background="{{asset('img/fondo.jpg')}}">
+
+<body>
+    
     
     @yield('desarrollo')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
 </body>
 </html>

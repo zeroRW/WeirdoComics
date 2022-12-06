@@ -37,7 +37,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Descripción:</label>
                 <div class="col-sm-10">
-                    <textarea name="txtDescripcion" cols="70" rows="1" value="{{old('txtDescripcion')}}"></textarea>
+                    <textarea name="txtDescripcion" cols="60" rows="1" value="{{old('txtDescripcion')}}"></textarea>
                     <p class="text-danger">{{$errors->first('txtDescripcion')}}</p> 
                 </div>
             </div>

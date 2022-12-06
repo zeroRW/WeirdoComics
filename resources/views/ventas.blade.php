@@ -6,7 +6,7 @@
         <div class="col-md-6 offset-md-7">
             <form class="d-flex" role="search">
                 <input class="form-control me-3" type="search" placeholder="buscar articulo..." aria-label="Search">
-                <button class="btn btn-outline-dark me-3" type="submit">Buscar</button>
+                <button class="btn btn-dark me-3" style="color: white" type="submit">Buscar</button>
             </form>  
         </div>
     </div>

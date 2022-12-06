@@ -51,7 +51,7 @@ Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('sa
 
 /* RUTA USUARIO VENTAS */
 Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('comic');
-Route::get('CCUV', [controladorComics::class, 'ConComicUVenta'])->name('CCUV');
+Route::get('inicio2', [controladorComics::class, 'ConComicUVenta'])->name('CCUV');
 Route::get('CAUV', [controladorComics::class, 'ConArtUVenta'])->name('CAUV');
 Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 
@@ -66,3 +66,7 @@ Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GC
 Route::post('actualizarComic',[controladorComics::class,'procesarEditComic']) ->name('GEComic');
 Route::post('guardaProv',[controladorComics::class,'procesarProv']) ->name('GProv');
 Route::post('actualizarProv',[controladorComics::class,'procesarEditProv']) ->name('GEProv');
+
+/* redirec */
+
+Route::post('redireqInicio', [controladorComics::class, '']);
