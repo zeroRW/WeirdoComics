@@ -31,7 +31,7 @@
         <div class="display-6 mt-3 mb-3 text-center">Registrar Comics</div>
         <!-- Creacion del Formulario -->
 
-        <form action="guardaComic" method="post">
+        <form action="{{route('registrarCom.store')}}" method="post">
             @csrf
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre:</label>

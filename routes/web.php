@@ -30,10 +30,22 @@ Route::post('login', [controladorComics::class, 'procesoLogin'])->name('LG');
 Route::post('RegisUsuario', [controladorComics::class, 'procesoUsuario'])->name('RU');
 
 /* RUTAS PLANTILLAS Y SUPER USUARIO*/
-Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('Comic');
+
+Route::get('registrarCom/createComic',[controladorBD::class,'createComic'])->name('Comic.createComic');
+
+Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('registrarCom.store');
+
 Route::get('editarCom',[controladorComics::class,'editarComic'])->name('editComic');
+
 Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('consuComic');
+
+/*------------------------------------*/
+
+
+Route::get('registrarArt',[controladorComics::class,'registrarArticulo'])->name('articulo');
+
 Route::get('registrarArt',[controladorBD::class,'createArticulo'])->name('articulo');
+
 Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
 Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
 Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
