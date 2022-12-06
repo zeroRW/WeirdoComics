@@ -26,7 +26,8 @@ class validadorArticulos extends FormRequest
         return [
             'txtTipo' => 'required',
             'txtMarca' => 'required',
-            'txtDescripcion' => 'required',
+            'txtDescripcion'=>'required',
+            'txtCantidad'=>'required|numeric',
             'txtCompra' => 'required|numeric',
             'txtVenta' => 'required|numeric',
             'txtFecha' => 'required',
