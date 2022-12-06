@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\controladorComics;
+use App\HTTP\Controllers\controladorBD;
+use App\HTTP\Controllers\controladorVendedorBD;
 use Illuminate\Support\Facades\Route;
 
 /*
