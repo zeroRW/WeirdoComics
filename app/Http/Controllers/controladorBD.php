@@ -14,77 +14,58 @@ use DB;
 
 class controladorBD extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function indexComic()
     {
         return view('consultarComic');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function createComics()
+   
+    public function createComic()
     {
         return view('registrarComic');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function storeComic(validadorComic $request)
+   
+    public function storeComic(validadorComic $req)
     {
-        //
+        DB::table('tb_comics')->insert([
+
+            "nombre"=> $req->input('txtNombre'),
+            "edicionComic"=> $req->input('txtEdicion'),
+            
+            "compania"=> $req->input('txtCompañia'),
+            "cantidad"=> $req->input('txtCantidad'),
+            "precioCompra"=> $req->input('txtCompra'),
+            "precioVenta"=> $req->input('txtVenta'),
+            "fechaCo"=> $req->date('txtFecha'),
+            "created_at"=> Carbon::now(),
+            "updated_at"=> Carbon::now(),
+
+        ]);
+
+        return redirect('registrarCom/createComic') -> with('confirmacion','Envio correcto');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         return view('editarComic');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //
