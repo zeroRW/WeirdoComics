@@ -35,13 +35,18 @@
                 </div>
             </div>
             <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Descripción:</label>
+                <label class="col-sm-2 col-form-label">Descripcion:</label>
                 <div class="col-sm-10">
-                    <textarea name="txtDescripcion" cols="60" rows="1" value="{{old('txtDescripcion')}}"></textarea>
+                    <input type="text" class="form-control" placeholder="Descripcion de articulo" name="txtDescripcion" value="{{old('txtDescripcion')}}">
                     <p class="text-danger">{{$errors->first('txtDescripcion')}}</p> 
                 </div>
             </div>
             <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Cantidad</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="Cantidad" name="txtCantidad" value="{{old('txtCantidad')}}">
+                    <p class="text-danger">{{$errors->first('txtCantidad')}}</p>
+                </div>
                 <label class="col-sm-2 col-form-label">($) Compra:</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" placeholder="Precio Compra" name="txtCompra" value="{{old('txtCompra')}}">
@@ -51,13 +56,6 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" placeholder="Precio Venta" name="txtVenta" value="{{old('txtVenta')}}">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Fecha:</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" name="txtFecha" value="{{old('txtFecha')}}">
-                    <p class="text-danger">{{$errors->first('txtFecha')}}</p>
                 </div>
             </div>
             <div class="text-center">

@@ -33,16 +33,16 @@ Route::post('RegisUsuario', [controladorComics::class, 'procesoUsuario'])->name(
 Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('Comic');
 Route::get('editarCom',[controladorComics::class,'editarComic'])->name('editComic');
 Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('consuComic');
-Route::get('registrarArt',[controladorComics::class,'registrarArticulo'])->name('articulo');
+Route::get('registrarArt',[controladorBD::class,'createArticulo'])->name('articulo');
 Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
 Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
 Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
-Route::get('consultarProv',[controladorComics::class,'consultarProveedor'])->name('consuProv');
-Route::get('editarProv',[controladorComics::class,'editarProveedor'])->name('editProv');
+Route::get('consultarProv',[controladorBD::class,'indexProveedor'])->name('consuProv');
+Route::get('editarProv/{id}',[controladorBD::class,'editProveedor'])->name('editProv');
 Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
 
 //Validador articulos
-Route::post('guardarArt',[controladorComics::class, 'procesarArticulo'])->name('saveArt');
+Route::post('guardarArt',[controladorBD::class, 'storeArticulo'])->name('saveArt');
 Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
 
 
@@ -64,8 +64,8 @@ Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
 /* RUTAS POST*/
 Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GComic');
 Route::post('actualizarComic',[controladorComics::class,'procesarEditComic']) ->name('GEComic');
-Route::post('guardaProv',[controladorComics::class,'procesarProv']) ->name('GProv');
-Route::post('actualizarProv',[controladorComics::class,'procesarEditProv']) ->name('GEProv');
+Route::post('guardaProv',[controladorBD::class,'storeProveedor']) ->name('GProv');
+Route::put('actualizarProv/{id}',[controladorBD::class,'updateProveedor']) ->name('GEProv');
 
 /* redirec */
 

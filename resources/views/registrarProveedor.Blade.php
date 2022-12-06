@@ -29,7 +29,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Dirección:</label>
                 <div class="col-sm-10">
-                    <textarea name="txtDireccion" cols="60" rows="1">{{old('txtDireccion')}}</textarea>
+                    <textarea name="txtDireccion" cols="60" rows="1" class="form-control">{{old('txtDireccion')}}</textarea>
                     <p class="text-danger">{{$errors->first('txtDireccion')}}</p>
                 </div>
             </div>
