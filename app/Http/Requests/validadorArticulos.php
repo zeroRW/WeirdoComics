@@ -29,7 +29,6 @@ class validadorArticulos extends FormRequest
             'txtDescripcion'=>'required',
             'txtCantidad'=>'required|numeric',
             'txtCompra' => 'required|numeric',
-            'txtVenta' => 'required|numeric',
         ];
     }
 }
