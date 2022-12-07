@@ -86,7 +86,8 @@ class controladorBD extends Controller
     /*          Funciones de Articulos            */
     public function indexArticulo()
     {
-        return view('consultarArticulo');
+        $articulos=DB::table('tb_articulos')->get();
+        return view('consultarArticulo',compact('articulos'));
     }
 
     public function createArticulo()
@@ -110,26 +111,34 @@ class controladorBD extends Controller
         
 
         return redirect('registrarArt')->with('Success','Correcto');
-  }
-
-    public function showArticulo($id)
-    {
-        return view('editarArticulo');
     }
 
     public function editArticulo($id)
     {
-        //
+        $articulo=DB::table('tb_articulos')->where('idArticulo',$id)->first();
+        return view('editarArticulo',compact('articulo'));
     }
 
-    public function updateArticulo(Request $request, $id)
+    public function updateArticulo(validadorArticulos $request, $id)
     {
-        //
+        DB::table('tb_articulos')->where('idArticulo',$id) -> update([
+            'tipo'=>$request->input('txtTipo'),
+            'marca'=>$request->input('txtMarca'),
+            'descripcion'=>$request->input('txtDescripcion'),
+            'cantidad'=>$request->input('txtCantidad'),
+            'precio_compra'=>$request->input('txtCompra'),
+            'precio_venta'=>$request->input('txtVenta'),
+            "updated_at"=>Carbon::now(), 
+        ]);
+        
+
+        return redirect('consultarArt')->with('actualizacion','Correcto');
     }
 
     public function destroyArticulo($id)
     {
-        //
+        DB::table('tb_articulos')->where('idArticulo',$id)->delete();
+        return redirect('consultarArt') -> with('eliminacion','Envio correcto');
     }
 
     /*          Funciones de Proveedores            */
@@ -159,11 +168,6 @@ class controladorBD extends Controller
         ]);
 
         return redirect('registrarProv') -> with('confirmacion','Envio correcto');
-    }
-
-    public function showProveedor($id)
-    {
-        
     }
 
     public function editProveedor($id)
