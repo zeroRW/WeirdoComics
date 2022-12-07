@@ -35,9 +35,13 @@ Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
 Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
-Route::get('editarCom',[controladorComics::class,'editarComic'])->name('editComic');
+Route::get('consultaCom',[controladorBD::class,'indexComic'])->name('consuComic');
 
-Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('consuComic');
+Route::get('editarCom/{id}',[controladorBD::class,'editComic'])->name('editCom');
+
+Route::put('editarCo/{id}', [controladorBD::class, 'updateComic'])->name('updateCom');
+
+Route::delete('eliminarCo/{id}', [controladorBD::class, 'destroyComic'])->name('destroyCom');
 
 /*------------------------------------*/
 
