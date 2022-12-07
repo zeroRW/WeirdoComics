@@ -14,16 +14,19 @@ use DB;
 
 class controladorBD extends Controller
 {
+
     public function indexComic()
     {
         $consultaCo = DB::table('tb_comics')->get();
         return view('consultarComic', compact('consultaCo'));
     }
 
+
     public function createComic()
     {
         return view('registrarComic');
     }
+
 
     public function storeComic(validadorComic $req)
 
@@ -197,4 +200,56 @@ class controladorBD extends Controller
         DB::table('tb_proveedores')->where('idProveedor',$id)->delete();
         return redirect('consultarProv') -> with('eliminacion','Envio correcto');
     }
+
+    /*          Funciones de Pedidos            */
+
+    public function solipedido()
+    {
+        return view('soliPedido');
+    }
+
+    public function pedidoComic()
+    {
+        $prov = DB::table('tb_proveedores')->get();
+
+        $comics= DB::table('tb_comics')->get();
+
+        $pedido = DB::table('tb_pedidos_comic')
+        ->crossjoin('tb_proveedores')->select('tb_proveedores.idProveedor','tb_proveedores.empresa')
+        ->whereIn('tb_pedidos_comic.id_Prov',(function ($query){
+            $query->from('tb_proveedores')
+            ->select('idProveedor');
+        })
+        )->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_pedidos_comic.id_Prov'))
+
+        ->get();
+
+        return view('levantamiento', compact('prov','comics','pedido'));
+    }
+
+    public function pedidoArticulo()
+    {
+        $prov = DB::table('tb_proveedores')->get();
+
+        $articulos = DB::table('tb_articulos')->get();
+
+
+        return view('levantamientoArt', compact('prov','articulos'));
+    }
+
+    public function savePedido_C(validador_Pedidos $request)
+    {
+        DB::table('tb_pedidos_comic') -> insert([
+            'id_Prov'=>$request->input('slcProveedor'),
+            'id_Comic'=>$request->input('slcProducto'),
+            'cantidad'=>$request->input('nmCantidad'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('pedidos/Comic') -> with('Correcto','Bien');
+    }
+
 }
+
+

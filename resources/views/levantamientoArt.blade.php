@@ -2,16 +2,16 @@
 
 
 @section('codigo')
-<div class="display-6 mt-3 mb-3 text-center" style="color: white"><strong>PEDIDOS DE COMICS</strong></div>
+<div class="display-6 mt-3 mb-3 text-center" style="color: white"><strong>PEDIDOS DE ARTICULOS</strong></div>
 
 <div class="container mt-3">
 
     <!-- Alert -->
-    @if (session()->has('Correcto'))
+    @if (session()->has('SCCS'))
        <script> 
        Swal.fire(
         'Todo correcto!',
-        'Pedido registrado',
+        'Pedido Guardado',
         'success'
          )
          </script>
@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-body">
         <!--Formulario -->
-        <form action="{{route('insertPed.Comic')}}" method="POST">
+        <form action="guardarPed" method="POST">
         @csrf
             <div class="mb-2 row">
                 <label class="col-sm-3 col-form-label">Proveedor:</label>
@@ -42,9 +42,10 @@
                 <div class="col-sm-8">
                     <select class="form-select form-select" name="slcProducto">
                         <option selected disabled>Selecciona un producto</option>
-                    @foreach ($comics as $c2)
-                        <option value="{{$c2->idComics}}">{{$c2->nombre}}</option>
-                     @endforeach
+                        @foreach ($articulos as $c2)
+                            <option value="{{$c2->idArticulo}}">{{$c2->tipo}} - {{$c2->marca}}</option>
+                        @endforeach
+
                     </select>
                     <p class="text-danger">{{$errors->first('slcProducto')}}</p> 
                 </div>   
@@ -78,13 +79,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pedido as $data)
-                        <tr class="">               
-                            <td>{{$data->empresa}}</td>
-
-                            <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                        <tr class="">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
                         </tr>
-                         @endforeach
+                        <tr class="">
+    
+                        </tr>
                     </tbody>
                 </table>
             </div>
