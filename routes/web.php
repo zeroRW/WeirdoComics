@@ -36,7 +36,7 @@ Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('co
 Route::get('registrarArt',[controladorBD::class,'createArticulo'])->name('articulo');
 Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
 Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
-Route::get('registrarProv',[controladorComics::class,'RegistrarProveedor'])->name('proveedor');
+Route::get('registrarProv',[controladorBd::class,'createProveedor'])->name('proveedor');
 Route::get('consultarProv',[controladorBD::class,'indexProveedor'])->name('consuProv');
 Route::get('editarProv/{id}',[controladorBD::class,'editProveedor'])->name('editProv');
 Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
@@ -67,6 +67,8 @@ Route::post('actualizarComic',[controladorComics::class,'procesarEditComic']) ->
 Route::post('guardaProv',[controladorBD::class,'storeProveedor']) ->name('GProv');
 Route::put('actualizarProv/{id}',[controladorBD::class,'updateProveedor']) ->name('GEProv');
 
+/* RUTAS DELETE */
+Route::delete('deleteArt/{id}',[controladorBD::class,'destroyProveedor'])->name('desProv');
 /* redirec */
 
 Route::post('redireqInicio', [controladorComics::class, '']);

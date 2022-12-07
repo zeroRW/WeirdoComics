@@ -59,12 +59,13 @@ class controladorBD extends Controller
 
     public function createArticulo()
     {
-        
+
+
+        return view('registrarArticulo');
     }
 
     public function storeArticulo(validadorArticulos $request)
     {
-        /*
         DB::table('tb_articulos') -> insert([
             'tipo'=>$request->input('txtTipo'),
             'marca'=>$request->input('txtMarca'),
@@ -75,11 +76,10 @@ class controladorBD extends Controller
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(), 
         ]);
-        */
         
 
         return redirect('registrarArt')->with('Success','Correcto');
-    }
+  }
 
     public function showArticulo($id)
     {
@@ -110,7 +110,7 @@ class controladorBD extends Controller
 
     public function createProveedor()
     {
-        
+        return view('registrarProveedor');
     }
 
     public function storeProveedor(validadorProveedor $request)
@@ -159,6 +159,7 @@ class controladorBD extends Controller
 
     public function destroyProveedor($id)
     {
-        //
+        DB::table('tb_proveedores')->where('idProveedor',$id)->delete();
+        return redirect('consultarProv') -> with('eliminacion','Envio correcto');
     }
 }
