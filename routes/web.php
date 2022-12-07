@@ -68,6 +68,7 @@ Route::get('pedidos/Articulo',[controladorBD::class,'pedidoArticulo'])->name('re
 
 // Guardar Pedido
 Route::post('regisPed/Comic',[controladorBD::class, 'savePedido_C'])->name('insertPed.Comic');
+Route::post('regisPed/Articulo',[controladorBD::class, 'savePedido_A'])->name('insertPed.Artic');
 
 
 /* RUTA USUARIO VENTAS */

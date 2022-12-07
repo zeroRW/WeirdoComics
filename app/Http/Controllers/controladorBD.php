@@ -214,12 +214,25 @@ class controladorBD extends Controller
 
         $comics= DB::table('tb_comics')->get();
 
+<<<<<<< HEAD
         $pedido = DB::table('tb_proveedores')
         ->crossJoin('tb_comics')
         ->crossJoin('tb_pedidos_comic')
         ->select('tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
         ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
         ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
+=======
+        $pedido1 = DB::table('tb_pedidos_comic')->get();
+
+        $pedido = DB::table('tb_pedidos_comic')
+        ->crossjoin('tb_proveedores')->select('tb_proveedores.idProveedor','tb_proveedores.empresa')
+        ->whereIn('tb_pedidos_comic.id_Prov',(function ($query){
+            $query->from('tb_proveedores')
+            ->select('idProveedor');
+        })
+        )->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_pedidos_comic.id_Prov'))
+
+>>>>>>> main
         ->get();
 
         return view('levantamiento', compact('prov','comics','pedido'));
@@ -231,8 +244,9 @@ class controladorBD extends Controller
 
         $articulos = DB::table('tb_articulos')->get();
 
+        $pedido = DB::table('tb_pedidos_articulo')->get();
 
-        return view('levantamientoArt', compact('prov','articulos'));
+        return view('levantamientoArt', compact('prov','articulos','pedido'));
     }
 
     public function savePedido_C(validador_Pedidos $request)
@@ -246,6 +260,19 @@ class controladorBD extends Controller
         ]);
 
         return redirect('pedidos/Comic') -> with('Correcto','Bien');
+    }
+
+    public function savePedido_A(validador_Pedidos $request)
+    {
+        DB::table('tb_pedidos_articulo') -> insert([
+            'id_Prov'=>$request->input('slcProveedor'),
+            'id_Arti'=>$request->input('slcProducto'),
+            'cantidad'=>$request->input('nmCantidad'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('pedidos/Articulo') -> with('Correcto','Bien');
     }
 
 }
