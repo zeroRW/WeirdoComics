@@ -35,14 +35,24 @@
                         <th scope="col">No. Fijo</th>
                         <th scope="col">No. Celular</th>
                         <th scope="col">Correo</th>
+                        <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
-
-                    </tr>
-                    <tr class="">
-
+                    <tr>
+                        @foreach ($Proveedor as $prov)
+                          <td>{{$prov->empresa}}</td>  
+                          <td>{{$prov->direccion}}</td>
+                          <td>{{$prov->pais}}</td>  
+                          <td>{{$prov->contacto}}</td>    
+                          <td>{{$prov->no_fijo}}</td>  
+                          <td>{{$prov->no_celu}}</td>  
+                          <td>{{$prov->correo}}</td>  
+                          <td>
+                            <a href="{{route('editProv',$prov->idProveedor)}}" class="btn btn-warning">Editar</a>
+                            <a href="" class="btn btn-danger">Eliminar</a>
+                          </td>
+                        @endforeach
                     </tr>
                 </tbody>
             </table>
