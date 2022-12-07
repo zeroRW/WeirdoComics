@@ -3,7 +3,16 @@
 
 
     <!-- Alert -->
+    @if (session() -> has('Success'))
 
+    <script type="text/javascript">    
+        Swal.fire(
+            'Todo correcto',
+            'Articulo guardado!',
+            'success'
+        )
+    </script>
+    @endif
 
 <div class="col-md-6 offset-md-3 mt-5">
 
