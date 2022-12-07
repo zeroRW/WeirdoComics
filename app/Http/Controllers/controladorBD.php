@@ -231,7 +231,13 @@ class controladorBD extends Controller
 
         $articulos = DB::table('tb_articulos')->get();
 
-        $pedido = DB::table('tb_pedidos_articulo')->get();
+        $pedido = DB::table('tb_proveedores')
+        ->crossJoin('tb_articulos')
+        ->crossJoin('tb_pedidos_articulo')
+        ->select('tb_proveedores.empresa', 'tb_articulos.tipo', 'tb_pedidos_articulo.cantidad')
+        ->where('tb_pedidos_articulo.id_Arti','=',DB::raw('tb_articulos.idArticulo'))
+        ->where('tb_pedidos_articulo.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
+        ->get();
 
         return view('levantamientoArt', compact('prov','articulos','pedido'));
     }
