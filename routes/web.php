@@ -35,26 +35,30 @@ Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
 Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
-Route::get('editarCom',[controladorComics::class,'editarComic'])->name('editComic');
+Route::get('consultaCom',[controladorBD::class,'indexComic'])->name('consuComic');
 
-Route::get('consultarCom',[controladorComics::class,'consultarComic'])->name('consuComic');
+Route::get('editarCom/{id}',[controladorBD::class,'editComic'])->name('editCom');
+
+Route::put('editarCo/{id}', [controladorBD::class, 'updateComic'])->name('updateCom');
+
+Route::delete('eliminarCo/{id}', [controladorBD::class, 'destroyComic'])->name('destroyCom');
 
 /*------------------------------------*/
 
-
-Route::get('registrarArt',[controladorComics::class,'registrarArticulo'])->name('articulo');
-
 Route::get('registrarArt',[controladorBD::class,'createArticulo'])->name('articulo');
 
-Route::get('editarArt',[controladorComics::class,'editarArticulo'])->name('editArt');
-Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name('consuArt');
-Route::get('registrarProv',[controladorBd::class,'createProveedor'])->name('proveedor');
+Route::get('editarArt/{id}',[controladorBD::class,'editArticulo'])->name('editArt');
+
+Route::get('consultarArt',[controladorBD::class,'indexArticulo'])->name('consuArt');
+
+Route::get('registrarProv',[controladorBD::class,'createProveedor'])->name('proveedor');
 Route::get('consultarProv',[controladorBD::class,'indexProveedor'])->name('consuProv');
 Route::get('editarProv/{id}',[controladorBD::class,'editProveedor'])->name('editProv');
 
 //Validador articulos
-Route::post('guardarArt',[controladorBD::class, 'storeArticulo'])->name('saveArt');
-Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
+Route::post('guardarArt',[controladorBD::class,'storeArticulo'])->name('saveArt');
+
+Route::put('updateArt/{id}',[controladorBD::class,'updateArticulo'])->name('updArt');
 
 
 //PEDIDOS
@@ -85,7 +89,9 @@ Route::post('guardaProv',[controladorBD::class,'storeProveedor']) ->name('GProv'
 Route::put('actualizarProv/{id}',[controladorBD::class,'updateProveedor']) ->name('GEProv');
 
 /* RUTAS DELETE */
-Route::delete('deleteArt/{id}',[controladorBD::class,'destroyProveedor'])->name('desProv');
+Route::delete('deleteProv/{id}',[controladorBD::class,'destroyProveedor'])->name('desProv');
+Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('desArt');
+
 /* redirec */
 
 Route::post('redireqInicio', [controladorComics::class, '']);

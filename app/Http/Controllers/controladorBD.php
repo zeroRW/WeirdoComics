@@ -17,12 +17,12 @@ class controladorBD extends Controller
 
     public function indexComic()
     {
-        return view('consultarComic');
+        $consultaCo = DB::table('tb_comics')->get();
+        return view('consultarComic', compact('consultaCo'));
     }
 
 
     public function createComic()
-
     {
         return view('registrarComic');
     }
@@ -31,9 +31,6 @@ class controladorBD extends Controller
     public function storeComic(validadorComic $req)
 
     {
-
-            
-
         DB::table('tb_comics')->insert([
 
             "nombre"=> $req->input('txtNombre'),
@@ -48,50 +45,52 @@ class controladorBD extends Controller
             "updated_at"=> Carbon::now(),
 
         ]);
-
-        
-
         return redirect('registrar') -> with('confirmacion','Envio correcto');
     }
 
-
     public function show($id)
     {
-        return view('editarComic');
+
     }
 
-
-   
-
-
-    public function edit($id)
+    public function editComic($id)
     {
-        //
+        $consultaCoEdi = DB::table('tb_comics')->where('idComics', $id)->first();
+        return view('editarComic', compact('consultaCoEdi'));
     }
 
-
-    
-
-
-    public function update(Request $request, $id)
+    public function updateComic(validadorComic $req, $id)
     {
-        //
+        DB::table('tb_comics')->where('idComics', $id)->update([
+
+            "nombre"=> $req->input('txtNombre'),
+            "edicionComic"=> $req->input('txtEdicion'),
+            "compania"=> $req->input('txtCompañia'),
+            "imagenCo" => $req->input('imagen'),
+            "cantidad"=> $req->input('txtCantidad'),
+            "precioCompra"=> $req->input('txtCompra'),
+            "precioVenta"=> $req->input('txtVenta'),
+            "fechaCo"=> $req->date('txtFecha'),
+            "updated_at"=> Carbon::now(),
+
+        ]);
+
+        return redirect('consultaCom')->with('actualizacion', 'bca');
     }
 
-
-    
-
-
-    public function destroy($id)
+    public function destroyComic($id)
     {
-        //
+        DB::table('tb_comics')->where('idComics', $id)->delete();
+
+        return redirect('consultaCom')->with('eliminado', 'cba');
     }
 
 
     /*          Funciones de Articulos            */
     public function indexArticulo()
     {
-        return view('consultarArticulo');
+        $articulos=DB::table('tb_articulos')->get();
+        return view('consultarArticulo',compact('articulos'));
     }
 
     public function createArticulo()
@@ -115,26 +114,34 @@ class controladorBD extends Controller
         
 
         return redirect('registrarArt')->with('Success','Correcto');
-  }
-
-    public function showArticulo($id)
-    {
-        return view('editarArticulo');
     }
 
     public function editArticulo($id)
     {
-        //
+        $articulo=DB::table('tb_articulos')->where('idArticulo',$id)->first();
+        return view('editarArticulo',compact('articulo'));
     }
 
-    public function updateArticulo(Request $request, $id)
+    public function updateArticulo(validadorArticulos $request, $id)
     {
-        //
+        DB::table('tb_articulos')->where('idArticulo',$id) -> update([
+            'tipo'=>$request->input('txtTipo'),
+            'marca'=>$request->input('txtMarca'),
+            'descripcion'=>$request->input('txtDescripcion'),
+            'cantidad'=>$request->input('txtCantidad'),
+            'precio_compra'=>$request->input('txtCompra'),
+            'precio_venta'=>$request->input('txtVenta'),
+            "updated_at"=>Carbon::now(), 
+        ]);
+        
+
+        return redirect('consultarArt')->with('actualizacion','Correcto');
     }
 
     public function destroyArticulo($id)
     {
-        //
+        DB::table('tb_articulos')->where('idArticulo',$id)->delete();
+        return redirect('consultarArt') -> with('eliminacion','Envio correcto');
     }
 
     /*          Funciones de Proveedores            */
@@ -164,11 +171,6 @@ class controladorBD extends Controller
         ]);
 
         return redirect('registrarProv') -> with('confirmacion','Envio correcto');
-    }
-
-    public function showProveedor($id)
-    {
-        
     }
 
     public function editProveedor($id)
