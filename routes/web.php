@@ -51,14 +51,21 @@ Route::get('consultarArt',[controladorComics::class,'consultarArticulo'])->name(
 Route::get('registrarProv',[controladorBd::class,'createProveedor'])->name('proveedor');
 Route::get('consultarProv',[controladorBD::class,'indexProveedor'])->name('consuProv');
 Route::get('editarProv/{id}',[controladorBD::class,'editProveedor'])->name('editProv');
-Route::get('levantamiento',[controladorComics::class,'levantamientoPedido'])->name('levanPed');
 
 //Validador articulos
 Route::post('guardarArt',[controladorBD::class, 'storeArticulo'])->name('saveArt');
 Route::post('updateArt',[controladorComics::class, 'procesarUpdArticulo'])->name('updArt');
 
 
-//Validador pedido
+//PEDIDOS
+Route::get('pedidos/soli',[controladorBD::class,'solipedido'])->name('levanPed');
+Route::get('pedidos/Comic',[controladorBD::class,'pedidoComic'])->name('regispedido.comic');
+Route::get('pedidos/Articulo',[controladorBD::class,'pedidoArticulo'])->name('regispedido.articulo');
+
+// Guardar Pedido
+Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
+
+
 Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
 
 /* RUTA USUARIO VENTAS */

@@ -24,9 +24,8 @@ class validador_Pedidos extends FormRequest
     public function rules()
     {
         return [
-            'slcEmpresa'=>'Required|in:Ejemp1,Ejemp2',
+            'slcProducto'=>'Required',
             'slcProveedor'=>'Required',
-            'slcArticulo'=>'Required',
             'nmCantidad'=>'Required',
         ];
     }

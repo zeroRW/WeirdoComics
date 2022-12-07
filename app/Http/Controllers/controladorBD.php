@@ -15,33 +15,20 @@ use DB;
 class controladorBD extends Controller
 {
 
-  
-
-
     public function indexComic()
     {
         return view('consultarComic');
     }
 
-
    
-    public function createComic(){
-
-    }
-
     public function createComics()
 
     {
         return view('registrarComic');
     }
 
-
    
-    public function storeComic(validadorComic $req){
-
-    }
-    
-    public function storeComic(validadorComic $request)
+    public function storeComic(validadorComic $req)
 
     {
         DB::table('tb_comics')->insert([
@@ -209,4 +196,45 @@ class controladorBD extends Controller
         DB::table('tb_proveedores')->where('idProveedor',$id)->delete();
         return redirect('consultarProv') -> with('eliminacion','Envio correcto');
     }
+
+    /*          Funciones de Pedidos            */
+
+    public function solipedido()
+    {
+        return view('soliPedido');
+    }
+
+    public function pedidoComic()
+    {
+        $prov = DB::table('tb_proveedores')->get();
+
+        $comics= DB::table('tb_comics')->get();
+
+        return view('levantamiento', compact('prov','comics'));
+    }
+
+    public function pedidoArticulo()
+    {
+        $prov = DB::table('tb_proveedores')->get();
+
+        $articulos= DB::table('tb_articulos')->get();
+
+        return view('levantamientoArt', compact('prov','articulos'));
+    }
+
+    public function savePedido_C(validador_Pedidos $request)
+    {
+        DB::table('tb_pedidos_comic') -> insert([
+            'id_Prov'=>$request->input('slcProveedor'),
+            'id_Comic'=>$request->input('slcProducto'),
+            'cantidad'=>$request->input('nmCantidad'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('registrarProv') -> with('confirmacion','Envio correcto');
+    }
+
 }
+
+

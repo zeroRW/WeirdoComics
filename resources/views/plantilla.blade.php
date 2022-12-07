@@ -58,7 +58,7 @@
                     <a href="{{route ('consuArt')}}"><img src="{{asset('img/iconoConArt.png')}}" width="40" height="40" alt=""> Consulta Articulos</a>
                     <a href="{{route ('proveedor')}}"><img src="{{asset('img/iconoPro.png')}}" width="40" height="40" alt=""> Proveedores</a>
                     <a href="{{route ('consuProv')}}"><img src="{{asset('img/iconoConPro.png')}}" width="40" height="40" alt=""> Consulta Proveedores</a>
-                    <a href="{{route ('levanPed')}}"><img src="{{asset('img/iconoPedidos.png')}}" width="40" height="40" alt=""> Pedidos</a>
+                    <a href="{{route ('levanPed')}}"><img src="{{asset('img/iconoPedidos.png')}}" width="40" height="40" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal"> Pedidos</a>
                     <a href="{{route ('Vventas')}}"><img src="{{asset('img/iconoVeve.png')}}" width="40" height="40" alt=""> Ventas</a>
                     <a class="fw-bold" href="/">LOG OUT</a>
                 </nav>
