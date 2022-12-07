@@ -10,14 +10,16 @@ use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
 use Carbon\Carbon;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class controladorBD extends Controller
 {
 
     public function indexComic()
-    {
+    {   
+   
         $consultaCo = DB::table('tb_comics')->get();
+
         return view('consultarComic', compact('consultaCo'));
     }
 
