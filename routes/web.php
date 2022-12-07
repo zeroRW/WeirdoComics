@@ -124,3 +124,7 @@ Route::get('mail', function(){
     return "Email enviado correctamente";
 
 });
+
+//PDF
+
+Route::get('pdf_d',[controladorBD::class, 'crear_pdf']);

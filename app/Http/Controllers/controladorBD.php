@@ -11,6 +11,7 @@ use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class controladorBD extends Controller
 {
@@ -268,6 +269,28 @@ class controladorBD extends Controller
         ]);
 
         return redirect('pedidos/Articulo') -> with('Correcto','Bien');
+    }
+
+     /*          Funciones de PDF            */
+    
+    public function pdf(){
+        
+       
+     }
+
+    public function crear_pdf(){
+
+        $pedido = DB::table('tb_proveedores')
+        ->crossJoin('tb_comics')
+        ->crossJoin('tb_pedidos_comic')
+        ->select('tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
+        ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
+        ->get();
+
+        $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido'));
+        return $pdf->stream();
+
     }
 
 }
