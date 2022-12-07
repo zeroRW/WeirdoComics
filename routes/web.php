@@ -96,3 +96,7 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 /* redirec */
 
 Route::post('redireqInicio', [controladorComics::class, '']);
+
+/*  INVENTARIO  */
+Route::get('inventario',[controladorBD::class,'inventario'])->name('inve');
+Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
