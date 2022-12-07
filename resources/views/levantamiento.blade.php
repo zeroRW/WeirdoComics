@@ -81,6 +81,8 @@
                         @foreach ($pedido as $data)
                         <tr class="">               
                             <td>{{$data->empresa}}</td>
+                            <td>{{$data->nombre}}</td>
+                            <td>{{$data->cantidad}}</td>
 
                             <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
                         </tr>

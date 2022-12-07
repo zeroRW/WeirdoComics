@@ -37,6 +37,7 @@ Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
 Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
+//Route::resource('consultaCom', [controladorBD::class, 'indexComic']);
 Route::get('consultaCom',[controladorBD::class,'indexComic'])->name('consuComic');
 
 Route::get('editarCom/{id}',[controladorBD::class,'editComic'])->name('editCom');
