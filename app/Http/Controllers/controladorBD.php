@@ -214,14 +214,12 @@ class controladorBD extends Controller
 
         $comics= DB::table('tb_comics')->get();
 
-        $pedido = DB::table('tb_pedidos_comic')
-        ->crossjoin('tb_proveedores')->select('tb_proveedores.idProveedor','tb_proveedores.empresa')
-        ->whereIn('tb_pedidos_comic.id_Prov',(function ($query){
-            $query->from('tb_proveedores')
-            ->select('idProveedor');
-        })
-        )->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_pedidos_comic.id_Prov'))
-
+        $pedido = DB::table('tb_proveedores')
+        ->crossJoin('tb_comics')
+        ->crossJoin('tb_pedidos_comic')
+        ->select('tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
+        ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
         ->get();
 
         return view('levantamiento', compact('prov','comics','pedido'));
@@ -251,5 +249,3 @@ class controladorBD extends Controller
     }
 
 }
-
-
