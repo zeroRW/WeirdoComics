@@ -31,9 +31,9 @@ Route::post('RegisUsuario', [controladorComics::class, 'procesoUsuario'])->name(
 
 /* RUTAS PLANTILLAS Y SUPER USUARIO*/
 
-Route::get('registrarCom/createComic',[controladorBD::class,'createComic'])->name('Comic.createComic');
+Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
-Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('registrarCom.store');
+Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
 Route::get('editarCom',[controladorComics::class,'editarComic'])->name('editComic');
 
