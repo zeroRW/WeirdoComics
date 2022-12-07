@@ -50,8 +50,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
                         @foreach ($Proveedor as $prov)
+                        <tr>
                           <td>{{$prov->empresa}}</td>  
                           <td>{{$prov->direccion}}</td>
                           <td>{{$prov->pais}}</td>  
@@ -94,8 +94,8 @@
                                     </div>
                                     </div>
                                 </div>
+                            </tr>
                         @endforeach
-                    </tr>
                 </tbody>
             </table>
         </div>
