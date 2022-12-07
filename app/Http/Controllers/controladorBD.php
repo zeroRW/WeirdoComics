@@ -14,28 +14,20 @@ use DB;
 
 class controladorBD extends Controller
 {
-
-  
-
-
     public function indexComic()
     {
-        return view('consultarComic');
+        $consultaCo = DB::table('tb_comics')->get();
+        return view('consultarComic', compact('consultaCo'));
     }
 
     public function createComic()
-
     {
         return view('registrarComic');
     }
 
-    
     public function storeComic(validadorComic $req)
 
     {
-
-            
-
         DB::table('tb_comics')->insert([
 
             "nombre"=> $req->input('txtNombre'),
@@ -50,43 +42,44 @@ class controladorBD extends Controller
             "updated_at"=> Carbon::now(),
 
         ]);
-
-        
-
         return redirect('registrar') -> with('confirmacion','Envio correcto');
     }
 
-
     public function show($id)
     {
-        return view('editarComic');
+
     }
 
-
-   
-
-
-    public function edit($id)
+    public function editComic($id)
     {
-        //
+        $consultaCoEdi = DB::table('tb_comics')->where('idComics', $id)->first();
+        return view('editarComic', compact('consultaCoEdi'));
     }
 
-
-    
-
-
-    public function update(Request $request, $id)
+    public function updateComic(validadorComic $req, $id)
     {
-        //
+        DB::table('tb_comics')->where('idComics', $id)->update([
+
+            "nombre"=> $req->input('txtNombre'),
+            "edicionComic"=> $req->input('txtEdicion'),
+            "compania"=> $req->input('txtCompañia'),
+            "imagenCo" => $req->input('imagen'),
+            "cantidad"=> $req->input('txtCantidad'),
+            "precioCompra"=> $req->input('txtCompra'),
+            "precioVenta"=> $req->input('txtVenta'),
+            "fechaCo"=> $req->date('txtFecha'),
+            "updated_at"=> Carbon::now(),
+
+        ]);
+
+        return redirect('consultaCom')->with('actualizacion', 'bca');
     }
 
-
-    
-
-
-    public function destroy($id)
+    public function destroyComic($id)
     {
-        //
+        DB::table('tb_comics')->where('idComics', $id)->delete();
+
+        return redirect('consultaCom')->with('eliminado', 'cba');
     }
 
 

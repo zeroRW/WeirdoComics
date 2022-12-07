@@ -24,9 +24,7 @@
                 <th scope="col">Fecha</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-            </tr>
+     
         </table>
     </div>
 </div>
