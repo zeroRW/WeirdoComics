@@ -100,6 +100,20 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 Route::post('redireqInicio', [controladorComics::class, '']);
 
 // CORREO 
+Route::get('email',function(){
+    $data = array(
+        'name' => 'Curso Laravel',
+    );
+
+    Mail::send('emails.welcome', $data, function($message){
+
+        $message->from('lopezz.alan134@gmail.com', 'Prueba Correo');
+
+        $message->to('lopezz.alan134@gmail.com')->subject('prueba de envio email');
+    });
+
+    return "Email enviado correctamente";
+});
 
 Route::get('mail', function(){
     $correo = new PedidoMail;
