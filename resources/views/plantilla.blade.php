@@ -50,7 +50,7 @@
         <div class="container-menu">
             <div class="cont-menu">
                 <nav>
-                    <a href="{{route ('Comic.createComic')}}"><img src="{{asset('img/iconoRegisComic.png')}}" width="40" height="40" alt="">  Registro Comics</a>
+                    <a href="{{route ('comics')}}"><img src="{{asset('img/iconoRegisComic.png')}}" width="40" height="40" alt="">  Registro Comics</a>
                     <a href="{{route ('articulo')}}"><img src="{{asset('img/iconoArticulos.png')}}" width="40" height="40" alt=""> Registrar Articulos</a>
                     <a href="{{route ('consuComic')}}"><img src="{{asset('img/iconoConComic.png')}}" width="40" height="40" alt=""> Consulta Comics</a>
                     <a href="{{route ('consuArt')}}"><img src="{{asset('img/iconoConArt.png')}}" width="40" height="40" alt=""> Consulta Articulos</a>

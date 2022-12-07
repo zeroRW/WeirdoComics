@@ -23,33 +23,25 @@ class controladorBD extends Controller
         return view('consultarComic');
     }
 
-
-   
-    public function createComic(){
-
-    }
-
-    public function createComics()
+    public function createComic()
 
     {
         return view('registrarComic');
     }
 
-
-   
-    public function storeComic(validadorComic $req){
-
-    }
     
-    public function storeComic(validadorComic $request)
+    public function storeComic(validadorComic $req)
 
     {
+
+            
+
         DB::table('tb_comics')->insert([
 
             "nombre"=> $req->input('txtNombre'),
             "edicionComic"=> $req->input('txtEdicion'),
-            
             "compania"=> $req->input('txtCompañia'),
+            "imagenCo" => $req->input('imagen'),
             "cantidad"=> $req->input('txtCantidad'),
             "precioCompra"=> $req->input('txtCompra'),
             "precioVenta"=> $req->input('txtVenta'),
@@ -59,11 +51,10 @@ class controladorBD extends Controller
 
         ]);
 
-        return redirect('registrarCom/createComic') -> with('confirmacion','Envio correcto');
+        
+
+        return redirect('registrar') -> with('confirmacion','Envio correcto');
     }
-
-
-   
 
 
     public function show($id)
@@ -107,7 +98,7 @@ class controladorBD extends Controller
 
     public function createArticulo()
     {
-        
+        return view('registrarArticulo');
     }
 
     public function storeArticulo(validadorArticulos $request)

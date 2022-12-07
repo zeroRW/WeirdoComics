@@ -31,7 +31,7 @@
         <div class="display-6 mt-3 mb-3 text-center">Registrar Comics</div>
         <!-- Creacion del Formulario -->
 
-        <form action="{{route('registrarCom.store')}}" method="post">
+        <form action="{{route('incert')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Nombre:</label>
@@ -47,6 +47,15 @@
                     <p class="text-danger">{{$errors->first('txtEdicion')}}</p>
                 </div>
             </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label" for="imagen">Imagen de portada:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="imagen" value="">
+                    <p class="text-danger">{{$errors->first('imagen')}}</p>
+                </div>
+            </div>
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Compañía:</label>
                 <div class="col-sm-10">
