@@ -56,7 +56,7 @@
                 </script>
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="txtVenta" id="venta" disabled step="0.01">
+                    <input type="number" class="form-control" name="txtVenta" id="venta" readonly="true" step="0.01">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>

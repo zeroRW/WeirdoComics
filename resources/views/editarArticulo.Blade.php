@@ -55,7 +55,7 @@
 
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Precio Venta" name="txtVenta" value="{{$articulo->precio_venta}}" id="venta" disabled step="0.01">
+                    <input type="text" class="form-control" readonly="true" name="txtVenta" value="{{$articulo->precio_venta}}" id="venta" disabled step="0.01">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
