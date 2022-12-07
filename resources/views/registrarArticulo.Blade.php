@@ -1,24 +1,17 @@
 @extends('Plantilla')
 @section('codigo')
 
-<div class="col-md-6 offset-md-3 mt-5">
 
     <!-- Alert -->
-    @if (session()->has('Success'))
-       <script> 
-       Swal.fire(
-        'Todo correcto!',
-        'Articulo Guardado',
-        'success'
-         )
-         </script>
-    @endif
+
+
+<div class="col-md-6 offset-md-3 mt-5">
 
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Registrar Articulo</div>
 
         <!-- Creacion del Formulario -->
-        <form action="guardarArt" method="POST">
+        <form action="guardarArt" method="post">
             @csrf
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Tipo:</label>
@@ -37,8 +30,8 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Descripcion:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Descripcion de articulo" name="txtDescripcion" value="{{old('txtDescripcion')}}">
-                    <p class="text-danger">{{$errors->first('txtDescripcion')}}</p> 
+                    <textarea name="txtDescripcion" cols="60" rows="1" class="form-control">{{old('txtDescripcion')}}</textarea>
+                    <p class="text-danger">{{$errors->first('txtDescripcion')}}</p>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -50,7 +43,7 @@
                 <label class="col-sm-2 col-form-label">($) Compra:</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" placeholder="Precio Compra" name="txtCompra" value="{{old('txtCompra')}}">
-                    <p class="text-danger">{{$errors->first('txtMarca')}}</p>
+                    <p class="text-danger">{{$errors->first('txtCompra')}}</p>
                 </div>
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-4">
