@@ -210,14 +210,25 @@ class controladorBD extends Controller
 
         $comics= DB::table('tb_comics')->get();
 
-        return view('levantamiento', compact('prov','comics'));
+        $pedido = DB::table('tb_pedidos_comic')
+        ->crossjoin('tb_proveedores')->select('tb_proveedores.idProveedor','tb_proveedores.empresa')
+        ->whereIn('tb_pedidos_comic.id_Prov',(function ($query){
+            $query->from('tb_proveedores')
+            ->select('idProveedor');
+        })
+        )->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_pedidos_comic.id_Prov'))
+
+        ->get();
+
+        return view('levantamiento', compact('prov','comics','pedido'));
     }
 
     public function pedidoArticulo()
     {
         $prov = DB::table('tb_proveedores')->get();
 
-        $articulos= DB::table('tb_articulos')->get();
+        $articulos = DB::table('tb_articulos')->get();
+
 
         return view('levantamientoArt', compact('prov','articulos'));
     }
@@ -232,7 +243,7 @@ class controladorBD extends Controller
             "updated_at"=>Carbon::now()
         ]);
 
-        return redirect('registrarProv') -> with('confirmacion','Envio correcto');
+        return redirect('pedidos/Comic') -> with('Correcto','Bien');
     }
 
 }

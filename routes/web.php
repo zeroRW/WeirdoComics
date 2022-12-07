@@ -63,10 +63,8 @@ Route::get('pedidos/Comic',[controladorBD::class,'pedidoComic'])->name('regisped
 Route::get('pedidos/Articulo',[controladorBD::class,'pedidoArticulo'])->name('regispedido.articulo');
 
 // Guardar Pedido
-Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
+Route::post('regisPed/Comic',[controladorBD::class, 'savePedido_C'])->name('insertPed.Comic');
 
-
-Route::post('guardarPed',[controladorComics::class, 'procesarPedido'])->name('savePed');
 
 /* RUTA USUARIO VENTAS */
 Route::get('registrarCom',[controladorComics::class,'registrarComic'])->name('comic');
