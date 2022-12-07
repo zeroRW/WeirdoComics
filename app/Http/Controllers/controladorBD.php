@@ -108,7 +108,6 @@ class controladorBD extends Controller
     public function createArticulo()
     {
 
-
         return view('registrarArticulo');
     }
 

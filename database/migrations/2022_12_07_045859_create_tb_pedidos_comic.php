@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('tb_pedidos_comic', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('idPedidoC');
-            $table->integer('id_Prov')->unsigned();
+            $table->unsignedBigInteger('id_Prov');
             $table->foreign('id_Prov')->references('idProveedor')->on('tb_proveedores')->onDelete('cascade');
-            $table->integer('id_Comic')->unsigned();
+            $table->unsignedBigInteger('id_Comic');
             $table->foreign('id_Comic')->references('idComics')->on('tb_comics')->onDelete('cascade');
             $table->integer('cantidad');
             $table->timestamps();
