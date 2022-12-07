@@ -7,50 +7,50 @@
         <div class="display-6 mt-3 mb-3 text-center">Editar Articulo</div>
 
         <!-- Creacion del Formulario -->
-        <form action="updateArt" method="POST">
+        <form action="{{route('updArt',$articulo->idArticulo)}}" method="POST">
             @csrf
+            {!!method_field('PUT')!!}
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Tipo:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Tipo de Articulo" name="txtTipo" value="{{old('txtTipo')}}">
+                    <input type="text" class="form-control" placeholder="Tipo de Articulo" name="txtTipo" value="{{$articulo->tipo}}">
                     <p class="text-danger">{{$errors->first('txtTipo')}}</p>         
                 </div>
             </div>
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Marca:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Marca de Articulo" name="txtMarca" value="{{old('txtMarca')}}">
+                    <input type="text" class="form-control" placeholder="Marca de Articulo" name="txtMarca" value="{{$articulo->marca}}">
                     <p class="text-danger">{{$errors->first('txtMarca')}}</p> 
                 </div>
             </div>
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Descripción:</label>
                 <div class="col-sm-10">
-                    <textarea name="txtDescripcion" cols="70" rows="1" value="{{old('txtDescripcion')}}"></textarea>
+                    <textarea name="txtDescripcion" cols="70" rows="1" class="form-control">{{$articulo->descripcion}}</textarea>
                     <p class="text-danger">{{$errors->first('txtDescripcion')}}</p> 
                 </div>
             </div>
             <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Cantidad</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="Cantidad" name="txtCantidad" value="{{$articulo->cantidad}}">
+                    <p class="text-danger">{{$errors->first('txtCantidad')}}</p>
+                </div>
                 <label class="col-sm-2 col-form-label">($) Compra:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Precio Compra" name="txtCompra" value="{{old('txtCompra')}}">
+                    <input type="text" class="form-control" placeholder="Precio Compra" name="txtCompra" value="{{$articulo->precio_compra}}">
                     <p class="text-danger">{{$errors->first('txtMarca')}}</p>
                 </div>
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Precio Venta" name="txtVenta" value="{{old('txtVenta')}}">
+                    <input type="text" class="form-control" placeholder="Precio Venta" name="txtVenta" value="{{$articulo->precio_venta}}">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Fecha:</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" name="txtFecha" value="{{old('txtFecha')}}">
-                    <p class="text-danger">{{$errors->first('txtFecha')}}</p>
-                </div>
-            </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success">Guardar Articulo</button>
+                <button type="submit" class="btn btn-success">Actualizar Articulo</button>
             </div>        
         </form>
     </div>
