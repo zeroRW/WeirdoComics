@@ -7,11 +7,11 @@
 <div class="container mt-3">
 
     <!-- Alert -->
-    @if (session()->has('SCCS'))
+    @if (session()->has('Correcto'))
        <script> 
        Swal.fire(
         'Todo correcto!',
-        'Pedido Guardado',
+        'Pedido registrado',
         'success'
          )
          </script>
@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-body">
         <!--Formulario -->
-        <form action="guardarPed" method="POST">
+        <form action="{{route('insertPed.Artic')}}" method="POST">
         @csrf
             <div class="mb-2 row">
                 <label class="col-sm-3 col-form-label">Proveedor:</label>
@@ -79,15 +79,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
-                        </tr>
-                        <tr class="">
-    
-                        </tr>
+                        @foreach ($pedido as $c)
+                            <tr class="">
+                            <td>{{$c->id_Prov}}</td>
+                            <td>{{$c->id_Arti}}</td>
+                            <td>{{$c->cantidad}}</td>
+                            <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                            </tr>
+                        @endforeach
+                      
                     </tbody>
                 </table>
             </div>

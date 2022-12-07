@@ -3,7 +3,9 @@
 use App\Http\Controllers\controladorComics;
 use App\HTTP\Controllers\controladorBD;
 use App\HTTP\Controllers\controladorVendedorBD;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Mail\PedidoMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,3 +98,14 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 /* redirec */
 
 Route::post('redireqInicio', [controladorComics::class, '']);
+
+// CORREO 
+
+Route::get('mail', function(){
+    $correo = new PedidoMail;
+
+    Mail::to('lopezz.alan134@gmail.com')->send($correo);
+
+    return "Email enviado correctamente";
+
+});
