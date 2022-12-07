@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-body">
         <!--Formulario -->
-        <form action="guardarPed" method="POST">
+        <form action="{{route('insertPed.Artic')}}" method="POST">
         @csrf
             <div class="mb-2 row">
                 <label class="col-sm-3 col-form-label">Proveedor:</label>
@@ -79,15 +79,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($pedido as $data)
                         <tr class="">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
-                        </tr>
-                        <tr class="">
-    
-                        </tr>
+                            <td>{{$data->empresa}}</td>
+                            <td>{{$data->tipo}}</td>
+                            <td>{{$data->cantidad}}</td>
+                            <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
