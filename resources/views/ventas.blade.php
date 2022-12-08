@@ -160,9 +160,8 @@
               
               <div class="card-body">
   
-                  <form action="" method="post" class="border">
-                   @csrf
-                      
+                  <form action="" method="post" class="border" id="formVA">
+                   @csrf         
                       <div class="mt-3">
                         <div><label class="form">Marca:</label></div>
                         <input class="form-control" type="text" disabled value="{{$art->marca}}">          
@@ -185,16 +184,7 @@
                         <input class="form-control" type="text" name="empleado" value="">
                         <p class="text-danger">{{$errors->first('empleado')}}</p>
                       </div>
-                      <script type="text/javascript">
-                        function calcular(){
-                            try{   
-                                var a = parseFloat(document.getElementById('cantidad').value) || 0;
-                                var b = parseFloat(document.getElementById('preV').value);
-                      
-                                document.getElementById('totalV').value = a * b;
-                            } catch (e){}
-                        }
-                      </script>
+            
                       <div class="mb-3">
                         <div><label class="form">Total($):</label></div>
                         <input class="form-control" type="text" name="total" value="" id="totalV" readonly="true">
@@ -204,7 +194,7 @@
                
               <div class="modal-footer">
                   <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cofirmar</button>
-                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="resetFormA()">Cancelar</button>
                 </form>
           </div>
   
@@ -214,5 +204,25 @@
   </div>
 </div>
 @endforeach
+<script type="text/javascript">
+   
+  function resetFormA(){
+    const form = document.getElementById("formVA");
+    form.reset();
+  }
+  
+
+  function calcular(){
+      try{   
+          let a = parseFloat(document.getElementById('cantidad').value) || 0;
+          let b = parseFloat(document.getElementById('preV').value);
+
+          document.getElementById('totalV').value = a * b;
+
+          return console.log(a*b);
+
+      } catch (e){}
+  }
+</script>
 
 @endsection
