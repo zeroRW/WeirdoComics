@@ -9,6 +9,7 @@ use App\Http\Requests\validador_Pedidos;
 use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
+use App\Http\Requests\validadorVentas;
 use App\Models\tb_comics;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -382,6 +383,12 @@ class controladorBD extends Controller
         $comics = DB::table('tb_comics')->get();
 
         return view('ventas',compact('articulos','comics'));
+    }
+
+    public function procesarVenta(validadorVentas $req)
+    {
+        
+        return redirect('CaVen');
     }
 
 }

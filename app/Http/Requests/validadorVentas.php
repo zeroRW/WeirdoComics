@@ -13,7 +13,7 @@ class validadorVentas extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class validadorVentas extends FormRequest
     public function rules()
     {
         return [
-            //
+            'cantidad'=>'required|numeric|integer',
+            'empleado'=>'required',
+            'totalo90'=>'required',
         ];
     }
 }
