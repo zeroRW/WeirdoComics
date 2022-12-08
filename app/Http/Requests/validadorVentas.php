@@ -26,7 +26,6 @@ class validadorVentas extends FormRequest
         return [
             'cantidad'=>'required|numeric|integer',
             'empleado'=>'required',
-            'totalo90'=>'required',
         ];
     }
 }
