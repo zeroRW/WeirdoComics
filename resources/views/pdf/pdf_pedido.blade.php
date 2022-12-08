@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <H1>Test PDF</H1>
+    <H1>Pedido de comic</H1>
     
     <div>
         <table class="table table-bordered">
@@ -16,20 +16,15 @@
                 <tr>
                     <th scope="col">Proveedor</th>
                     <th scope="col">Producto</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Opciones</th>               
+                    <th scope="col">Cantidad</th>              
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pedido as $data)
                 <tr class="">               
-                    <td>{{$data->empresa}}</td>
-                    <td>{{$data->nombre}}</td>
-                    <td>{{$data->cantidad}}</td>
-
-                    <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                    <td>{{$pedido->empresa}}</td>
+                    <td>{{$pedido->nombre}}</td>
+                    <td>{{$pedido->cantidad}}</td>
                 </tr>
-                 @endforeach
             </tbody>
         </table>
     </div>

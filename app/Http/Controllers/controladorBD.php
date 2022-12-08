@@ -220,7 +220,7 @@ class controladorBD extends Controller
         $pedido = DB::table('tb_proveedores')
         ->crossJoin('tb_comics')
         ->crossJoin('tb_pedidos_comic')
-        ->select('tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->select('tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
         ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
         ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
         ->get();
@@ -273,9 +273,19 @@ class controladorBD extends Controller
 
      /*          Funciones de PDF            */
     
-    public function pdf(){
+    public function pdf_comic($id){
         
-       
+        $pedido = DB::table('tb_proveedores')
+        ->crossJoin('tb_comics')
+        ->crossJoin('tb_pedidos_comic')
+        ->select('tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
+        ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
+        ->where('idPedidoC',$id)->first();
+
+        $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido'));
+        return $pdf->stream();
+
      }
 
     public function crear_pdf(){

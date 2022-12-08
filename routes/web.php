@@ -126,5 +126,8 @@ Route::get('mail', function(){
 });
 
 //PDF
+// test
+Route::get('pdf_d',[controladorBD::class, 'crear_pdf'])->name('view.pdf');
 
-Route::get('pdf_d',[controladorBD::class, 'crear_pdf']);
+// pdf pedido comic individual 
+Route::get('pedido/comic/{id}/pdf',[controladorBD::class, 'pdf_comic'])->name('pedidoCo.pdf');
