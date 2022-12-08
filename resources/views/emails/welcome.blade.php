@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h2>¡Correo!</h2>
+    <h2>¡Solicitud de pedido realizada!</h2>
 
     <div>
-        Este es el correo {!!$name!!}
+        Gracias por su pedido le agradece  {!!$name!!}
     </div>
 </body>
 </html>

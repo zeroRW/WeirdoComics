@@ -17,6 +17,17 @@
          </script>
     @endif
 
+      <!-- Alert Correo-->
+    @if (session()->has('Enviado'))
+      <script> 
+      Swal.fire(
+       'Correo enviado!',
+       '',
+       'success'
+        )
+        </script>
+     @endif
+ 
 
 <div class="row">
     <div class="col-sm-6">
@@ -85,7 +96,7 @@
                             <td>{{$data->nombre}}</td>
                             <td>{{$data->cantidad}}</td>
 
-                            <td class="text-center"><a href="{{route('pedidoCo.pdf',[$data->idPedidoC,$data->idComics])}}"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                            <td class="text-center"><a href="{{route('pedidoCo.pdf',[$data->idPedidoC,$data->idComics])}}"><button>PDF</button></a><a href="{{route('correo.env')}}"><button>Enviar a correo</button></a></td>
                         </tr>
                          @endforeach
                     </tbody>
