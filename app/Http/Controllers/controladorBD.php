@@ -220,7 +220,7 @@ class controladorBD extends Controller
         $pedido = DB::table('tb_proveedores')
         ->crossJoin('tb_comics')
         ->crossJoin('tb_pedidos_comic')
-        ->select('tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->select('tb_comics.idComics','tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
         ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
         ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
         ->get();
@@ -241,6 +241,7 @@ class controladorBD extends Controller
         ->where('tb_pedidos_articulo.id_Arti','=',DB::raw('tb_articulos.idArticulo'))
         ->where('tb_pedidos_articulo.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
         ->get();
+
 
         return view('levantamientoArt', compact('prov','articulos','pedido'));
     }
@@ -273,17 +274,29 @@ class controladorBD extends Controller
 
      /*          Funciones de PDF            */
     
-    public function pdf_comic($id){
+    public function pdf_comic($id, $idC){
         
+        //Consultas para el PDF
         $pedido = DB::table('tb_proveedores')
         ->crossJoin('tb_comics')
         ->crossJoin('tb_pedidos_comic')
-        ->select('tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
+        ->select('tb_comics.idComics','tb_pedidos_comic.idPedidoC','tb_proveedores.empresa', 'tb_comics.nombre', 'tb_pedidos_comic.cantidad')
         ->where('tb_pedidos_comic.id_Prov','=',DB::raw('tb_proveedores.idProveedor'))
         ->where('tb_pedidos_comic.id_Comic','=',DB::raw('tb_comics.idComics'))
         ->where('idPedidoC',$id)->first();
 
-        $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido'));
+        $detalleC = DB::table('tb_comics')->where('idComics',$idC)->first();
+
+        //Total de compra pedido
+        $precioVenta = DB::table('tb_comics')->select('precioCompra')->where('idComics',$idC)->first();
+        $preV = $precioVenta->precioCompra;
+
+        $C_cantidad = DB::table('tb_pedidos_comic')->select('cantidad')->where('idPedidoc',$id)->first();
+        $cantidad = $C_cantidad->cantidad;
+        $total = ($preV) * ($cantidad);
+
+        //Generar PDF
+        $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido','detalleC','total'));
         return $pdf->stream();
 
      }

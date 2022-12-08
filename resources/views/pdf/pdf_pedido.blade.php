@@ -7,26 +7,39 @@
     <title>pdf</title>
 </head>
 <body>
+    <H1>Weirdo Comics</H1>
+    <H2>Pedido de comic</H2>
 
-    <H1>Pedido de comic</H1>
-    
+
     <div>
-        <table class="table table-bordered">
-            <thead class="text-center">
-                <tr>
-                    <th scope="col">Proveedor</th>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Cantidad</th>              
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">               
-                    <td>{{$pedido->empresa}}</td>
-                    <td>{{$pedido->nombre}}</td>
-                    <td>{{$pedido->cantidad}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div>
+            <label><strong>Proveedor: </strong>{{$pedido->empresa}}</label>
+            <p>_______________________________________________</p>
+        </div>
+        <div>
+            <label><strong>Producto: </strong>{{$pedido->nombre}}</label>      
+            <div>
+
+               <label>Detalle Producto</label> 
+               <br>
+               <label>Edición: {{$detalleC->edicionComic}}</label>
+               <br>
+               <label>Compañia: {{$detalleC->compania}}</label>
+               <br>
+               <label>Precio Compra: {{$detalleC->precioCompra}}</label>
+            </div>
+            
+            <p>_______________________________________________</p>
+        </div>
+       
+        <div>
+            <label> <strong> Cantidad: </strong>{{$pedido->cantidad}}</label>
+            <br>
+               <label>Total: {{$total}}</label>
+               
+            <p>_______________________________________________</p>
+        </div>
     </div>
+    
 </body>
 </html>
