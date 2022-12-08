@@ -374,6 +374,15 @@ class controladorBD extends Controller
 
     }
 
+    /* VENTAS */
+    
+    public function ventasMostrador()
+    {
+        $articulos = DB::table('tb_articulos')->get();
+        $comics = DB::table('tb_comics')->get();
+
+        return view('ventas',compact('articulos','comics'));
+    }
 
 }
 
