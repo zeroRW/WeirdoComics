@@ -289,12 +289,9 @@ class controladorBD extends Controller
         }
     }
 
-
-}
-
-     /*          Funciones de PDF            */
+      /*          Funciones de PDF            */
     
-    public function pdf_comic($id, $idC){
+      public function pdf_comic($id, $idC){
         
         //Consultas para el PDF
         $pedido = DB::table('tb_proveedores')
@@ -364,5 +361,8 @@ class controladorBD extends Controller
 
     }
 
+
 }
+
+   
 
