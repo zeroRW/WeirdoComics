@@ -26,14 +26,7 @@
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Consultar Articulos</div>
 
-        <nav class="navbar">
-          <div class="container-fluid">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="buscar por nombre..." aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-          </div>
-        </nav>
+
         <!-- Creacion de Tabla -->
         <table class="table table-bordered">
             <thead>

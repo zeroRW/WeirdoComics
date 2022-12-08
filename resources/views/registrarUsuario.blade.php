@@ -40,28 +40,8 @@
                   <option value="Vendedor" {{old('roles') == 'Vendedor'? 'selected' :''}} >Vendedor</option>
                   <option value="Super Usuario" {{old('roles') == 'Super Usuario'? 'selected' :''}}>Super Usuario</option>
                 </select>
-              </div> 
+            </div> 
               <p class="text-danger">{{$errors->first('roles')}}</p> 
-              <div class="input-group mb-3" role="search">
-                <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button" id="button-addon2">Buscar</button>
-              </div>
-
-              <!-- TABLA DE REGISTRO-->
-              <table class="table table-striped-columns">
-                <thead>
-                  <tr>
-                    <th scope="col" style="color: white">ID</th>
-                    <th scope="col" style="color: white">Nombre</th>
-                    <th scope="col" style="color: white">Matricula</th>
-                    <th scope="col" style="color: white">Rol</th>
-                    <th scope="col" style="color: white">Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                </tbody>
-              </table>
 
             <br>
             <div class="d-grid">

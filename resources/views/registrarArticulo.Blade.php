@@ -47,7 +47,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Cantidad</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Cantidad" name="txtCantidad" value="{{old('txtCantidad')}}">
+                    <input type="number" class="form-control" placeholder="Cantidad" name="txtCantidad" value="{{old('txtCantidad')}}">
                     <p class="text-danger">{{$errors->first('txtCantidad')}}</p>
                 </div>
                 <label class="col-sm-2 col-form-label">($) Compra:</label>
@@ -64,10 +64,10 @@
                         } catch (e){}
                     }
                 </script>
-                
+
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control" name="txtVenta" id="venta" readonly="true" step="0.01">
+                    <input type="number" class="form-control" name="txtVenta" id="venta" readonly="true" step="0.01" value="{{old('txtVenta')}}">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
