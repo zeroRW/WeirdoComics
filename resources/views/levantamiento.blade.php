@@ -84,7 +84,7 @@
                             <td>{{$data->nombre}}</td>
                             <td>{{$data->cantidad}}</td>
 
-                            <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+                            <td class="text-center"><a href="{{route('pedidoCo.pdf',[$data->idPedidoC,$data->idComics])}}"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
                         </tr>
                          @endforeach
                     </tbody>
