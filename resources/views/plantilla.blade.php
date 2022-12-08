@@ -38,7 +38,7 @@
             </div>
         </header>
         <form class="d-flex">
-            <a href="{{route ('CaVen')}}">
+            <a href="{{route ('invenVen')}}">
                 <img class="car" style="color: white" src="{{asset('img/inventarioVV.png')}}" width="50" height="50" alt="carrito">
             </a>
         </form>

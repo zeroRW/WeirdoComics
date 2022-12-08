@@ -25,6 +25,17 @@ class controladorBD extends Controller
 
     //public function index(Request $req){}
 
+    public function indexCarrito(){
+
+       $consultaCarVen = DB::table('tb_ventas_a')
+        ->crossJoin('tb_articulos')
+        ->select('tb_ventas_a.idVenta_A', 'tb_articulos.tipo', 'tb_ventas_a.cantidad', 'tb_ventas_a.empleado', 'tb_ventas_a.total', 'tb_ventas_a.created_at')
+        ->where('tb_ventas_a.id_Varti','=',DB::raw('tb_articulos.idArticulo'))
+        ->get();
+
+        return view('carritoVenta', compact('consultaCarVen'));
+    }
+
     public function indexComic(){
         $consultaCo = DB::table('tb_comics')->get();
         return view('consultarComic', compact('consultaCo'));

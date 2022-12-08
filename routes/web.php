@@ -109,6 +109,8 @@ Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
 
 Route::post('filtro2',[controladorBD::class,'filtro2'])->name('FilIn2');
 
+Route::get('inventarioVentas', [controladorBD::class, 'indexCarrito'])->name('invenVen');
+
 // CORREO 
 Route::get('email',function(){
     $data = array(
