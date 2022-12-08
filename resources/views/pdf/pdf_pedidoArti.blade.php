@@ -8,7 +8,7 @@
 </head>
 <body>
     <H1>Weirdo Comics</H1>
-    <H2>Pedido de comic</H2>
+    <H2>Pedido de articulo</H2>
 
 
     <div>
@@ -17,16 +17,16 @@
             <p>_______________________________________________</p>
         </div>
         <div>
-            <label><strong>Producto: </strong>{{$pedido->nombre}}</label>      
+            <label><strong>Producto: </strong>{{$pedido->tipo}}</label>      
             <div>
 
                <label>Detalle Producto</label> 
                <br>
-               <label>Edición: {{$detalleC->edicionComic}}</label>
+               <label>Marca: {{$detalleA->marca}}</label>
                <br>
-               <label>Compañia: {{$detalleC->compania}}</label>
-               <br>
-               <label>Precio Compra: {{$detalleC->precioCompra}}</label>
+               <label>Descripción: {{$detalleA->descripcion}}</label>
+               <br> 
+               <label>Precio Compra: {{$detalleA->precio_compra}}</label>
             </div>
             
             <p>_______________________________________________</p>

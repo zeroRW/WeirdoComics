@@ -84,7 +84,8 @@
                             <td>{{$data->empresa}}</td>
                             <td>{{$data->tipo}}</td>
                             <td>{{$data->cantidad}}</td>
-                            <td class="text-center"><a href="#"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
+
+                            <td class="text-center"><a href="{{route('pedidoArt.pdf',[$data->idPedidoA,$data->idArticulo])}}"><button>PDF</button></a><a href="#"><button>Enviar a correo</button></a></td>
                             </tr>
                         @endforeach
 

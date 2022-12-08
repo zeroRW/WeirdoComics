@@ -131,3 +131,6 @@ Route::get('pdf_d',[controladorBD::class, 'crear_pdf'])->name('view.pdf');
 
 // pdf pedido comic individual 
 Route::get('pedido/comic/{id}/{idC}/pdf',[controladorBD::class, 'pdf_comic'])->name('pedidoCo.pdf');
+
+// pdf pedido articulo individual 
+Route::get('pedido/articulo/{id}/{idC}/pdf',[controladorBD::class, 'pdf_articulo'])->name('pedidoArt.pdf');
