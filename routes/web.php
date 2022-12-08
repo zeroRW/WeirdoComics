@@ -80,13 +80,12 @@ Route::get('inicio2', [controladorComics::class, 'ConComicUVenta'])->name('CCUV'
 Route::get('CAUV', [controladorComics::class, 'ConArtUVenta'])->name('CAUV');
 Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 
-
 /* RUTA VISTA VENTA */
 Route::get('vventa',[controladorBD::class,'ventasMostrador'])->name('Vventas');
 Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
 
 /* VENTAS */
-Route::post('guardaVenta/A',[controladorBD::class,'procesarVenta']) ->name('proceso.venta');
+Route::post('guardaVenta/A',[controladorBD::class,'insertVentaA']) ->name('proceso.venta');
 
 /* RUTAS POST*/
 Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GComic');

@@ -385,10 +385,18 @@ class controladorBD extends Controller
         return view('ventas',compact('articulos','comics'));
     }
 
-    public function procesarVenta(validadorVentas $req)
+    public function insertVentaA(validadorVentas $req)
     {
-        
-        return redirect('CaVen');
+        DB::table('tb_ventas_a') -> insert([
+            'id_VArti'=>$req->input('idArt'),
+            'cantidad'=>$req->input('cantidad'),
+            'empleado'=>$req->input('empleado'),
+            'total'=>$req->input('total'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+
+        return redirect('vventa')->with('Hecho','scs');
     }
 
 }
