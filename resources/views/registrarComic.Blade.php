@@ -80,7 +80,7 @@
 
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-10">
-                    <input type="numer" class="form-control" placeholder="Precio venta" name="txtVenta" id="venta" readonly="true" step="0.01">
+                    <input type="numer" class="form-control" placeholder="Precio venta" name="txtVenta" id="venta" readonly="true" step="0.01" value="{{old('txtVenta')}}">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
