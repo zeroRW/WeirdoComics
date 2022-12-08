@@ -14,6 +14,11 @@ use App\Models\tb_comics;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use App\Mail\PedidoMail;
+use Exception;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
+use FontLib\Table\Type\name;
 
 class controladorBD extends Controller
 {
@@ -328,7 +333,7 @@ class controladorBD extends Controller
 
         //Generar PDF
         $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido','detalleC','total'));
-        return $pdf->stream();
+        return $pdf->download();
 
      }
 
@@ -355,7 +360,7 @@ class controladorBD extends Controller
 
         //Generar PDF
         $pdf = PDF::loadView('pdf.pdf_pedidoArti', compact('pedido','detalleA','total'));
-        return $pdf->stream();
+        return $pdf->download();
 
      }
 
@@ -371,7 +376,7 @@ class controladorBD extends Controller
         ->get();
 
         $pdf = PDF::loadView('pdf.pdf_pedido', compact('pedido'));
-        return $pdf->stream();
+        return $pdf->download();
 
     }
 
@@ -399,6 +404,28 @@ class controladorBD extends Controller
         return redirect('vventa')->with('Hecho','scs');
     }
 
-}
 
+ /* CORREO */   
+    public function envioCorreo(){
+        $data = array(
+            'name' => 'WeirdoComics',
+        );
+    
+        try{
+           Mail::send('emails.welcome', $data, function($message){
+    
+            /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
+            $message->from('lopezz.alan134@gmail.com', 'Pedido');
+    
+            /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
+            $message->to('lopezz.alan134@gmail.com')->subject('Detalle del pedido:');
+        })->name('sendMail'); 
+        }catch(Exception){
+            return redirect('pedidos/Articulo')->with('Enviado','scs');
+        }
+        
+    
+        
+    }
+}
 

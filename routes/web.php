@@ -6,6 +6,7 @@ use App\HTTP\Controllers\controladorVendedorBD;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Mail\PedidoMail;
+use FontLib\Table\Type\name;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,18 +110,20 @@ Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
 // CORREO 
 Route::get('email',function(){
     $data = array(
-        'name' => 'Curso Laravel',
+        'name' => 'WeirdoComics',
     );
 
     Mail::send('emails.welcome', $data, function($message){
 
-        $message->from('lopezz.alan134@gmail.com', 'Prueba Correo');
+        $message->from('lopezz.alan134@gmail.com', 'Pedido');
 
-        $message->to('lopezz.alan134@gmail.com')->subject('prueba de envio email');
-    });
+        $message->to('lopezz.alan134@gmail.com')->subject('Detalle del pedido:');
+    })->name('sendMail');
 
     return "Email enviado correctamente";
 });
+
+Route::get('correo',[controladorBD::class,'envioCorreo'])->name('correo.env');
 
 Route::get('mail', function(){
     $correo = new PedidoMail;
