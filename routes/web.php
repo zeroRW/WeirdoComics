@@ -100,6 +100,11 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 
 Route::post('redireqInicio', [controladorComics::class, '']);
 
+
+/*  INVENTARIO  */
+Route::get('inventario',[controladorBD::class,'inventario'])->name('inve');
+Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
+
 // CORREO 
 Route::get('email',function(){
     $data = array(
@@ -134,3 +139,4 @@ Route::get('pedido/comic/{id}/{idC}/pdf',[controladorBD::class, 'pdf_comic'])->n
 
 // pdf pedido articulo individual 
 Route::get('pedido/articulo/{id}/{idC}/pdf',[controladorBD::class, 'pdf_articulo'])->name('pedidoArt.pdf');
+

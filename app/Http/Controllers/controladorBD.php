@@ -271,6 +271,27 @@ class controladorBD extends Controller
         return redirect('pedidos/Articulo') -> with('Correcto','Bien');
     }
 
+
+    public function inventario()
+    {
+        $articulos = DB::table('tb_articulos')->get();
+        $comics = DB::table('tb_comics')->get();
+
+        return view('inventario',compact('articulos','comics'));
+    }
+
+    public function filtro(Request $req){
+        $producto = $req->input('Filtro');
+        
+
+        if (empty($producto)){
+            return redirect('inventario');
+        }
+    }
+
+
+}
+
      /*          Funciones de PDF            */
     
     public function pdf_comic($id, $idC){
@@ -344,3 +365,4 @@ class controladorBD extends Controller
     }
 
 }
+
