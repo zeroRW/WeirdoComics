@@ -82,7 +82,7 @@ Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 
 
 /* RUTA VISTA VENTA */
-Route::get('vventa',[controladorComics::class,'vistaVenta'])->name('Vventas');
+Route::get('vventa',[controladorBD::class,'ventasMostrador'])->name('Vventas');
 Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
 
 
