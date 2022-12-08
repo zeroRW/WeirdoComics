@@ -49,20 +49,13 @@
             </div>
 
             <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label" for="imagen">Imagen de portada:</label>
-                <div class="col-sm-10">
-                    <input type="file" class="form-control" name="imagen" value="">
-                    <p class="text-danger">{{$errors->first('imagen')}}</p>
-                </div>
-            </div>
-
-            <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Compañía:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" placeholder="Compañía de Comics" name="txtCompañia" value="{{old('txtCompañia')}}">
                     <p class="text-danger">{{$errors->first('txtCompañia')}}</p>
                 </div>
             </div>
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Cantidad:</label>
                 <div class="col-sm-3">
@@ -71,17 +64,27 @@
                 </div>
                 <label class="col-sm-3 col-form-label">($) Compra:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Precio compra" name="txtCompra" value="{{old('txtCompra')}}">
+                    <input type="number" class="form-control" placeholder="Precio compra" name="txtCompra" value="{{old('txtCompra')}}" id="compra" oninput="calcular()" step="0.01">
                     <p class="text-danger">{{$errors->first('txtCompra')}}</p>
                 </div>
-            </div>
-            <div class="mb-3 row">
+   
+
+                <script type="text/javascript">
+                    function calcular(){
+                        try{
+                            var a = parseFloat(document.getElementById('compra').value) || 0;
+                            document.getElementById('venta').value = a + a*(40/100) ;
+                        } catch (e){}
+                    }
+                </script>
+
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Precio venta" name="txtVenta" value="{{old('txtVenta')}}">
+                    <input type="numer" class="form-control" placeholder="Precio venta" name="txtVenta" id="venta" readonly="true" step="0.01">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Fecha:</label>
                 <div class="col-sm-10">
