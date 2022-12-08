@@ -9,20 +9,24 @@ use App\Http\Requests\validador_Pedidos;
 use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
+use App\Models\tb_comics;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class controladorBD extends Controller
 {
 
-    public function indexComic()
+    public function index(Request $req)
     {   
-   
-        $consultaCo = DB::table('tb_comics')->get();
+  
 
-        return view('consultarComic', compact('consultaCo'));
+     
     }
 
+    //public function indexComic(){
+        //$consultaCo = DB::table('tb_comics')->get();
+        //return view('consultarComic', compact('consultaCo'));
+    //}
 
     public function createComic()
     {

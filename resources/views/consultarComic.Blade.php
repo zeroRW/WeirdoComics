@@ -28,39 +28,33 @@
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
 
-        
-        <form action="" method="get">
-            <div class="col-3">
-                <input type="text" class="form-control" name="txtbusqueda" value="">
-            <div class="col-auto my-1 mb-3">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </div>
+
+        <form class="col-3 d-flex" role="search" action="{{route('categorias.consultarComic')}}" method="GET">
+            <input class="form-control me-2" name="busqueda" type="search" placeholder="Search" aria-label="Search" value="">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
         </form>
         
-        
+        <br>
             
 
-        </div>
         <!-- Creacion de Tabla -->
         <table class="table table-bordered">
             <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Edición</th>
-                <th scope="col">Compañía</th>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edición</th>
+                    <th scope="col">Compañía</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">($) Compra</th>
                 <th scope="col">($) venta</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Opciones</th>
-              </tr>
-            </thead>
-
-     
-            
+            </tr>
+        </thead>
+        <tbody>
             @foreach ($consultaCo as $item)
-            <tbody>
+            <tr>
                 <th scope="row">{{$item->idComics}}</th>
                 <td>{{$item->nombre}}</td>
                 <td>{{$item->edicionComic}}</td>
@@ -72,15 +66,16 @@
                 <td>
                     <a href="{{route('editCom',$item->idComics)}}" class="btn btn-outline-success mb-3">Editar</a>
                     
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEliminar{{$item->idComics}}">
+                    <button type="button" class="btn btn-outline-danger mb-3" data-bs-toggle="modal" data-bs-target="#modalEliminar{{$item->idComics}}">
                         Eliminar
                     </button>
                     
                 </td>
-            </tbody> 
+            </tr>
             @endforeach
-
+        </tbody> 
         </table>
+    </div>
     </div>
 </div>
 
