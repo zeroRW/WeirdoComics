@@ -286,8 +286,21 @@ class controladorBD extends Controller
 
         if (empty($producto)){
             return redirect('inventario');
+        } else{
+            $busqueda = DB::table('tb_articulos')->where('tipo',$producto)->get()->first();
+            if(empty($busqueda)){
+                $busqueda = DB::table('tb_comics')->where('nombre',$producto)->get()->first();
+                if(empty($busqueda)){
+                    return redirect('inventario');
+                } else {
+                    return view('filtroC',compact('busqueda'));
+                }
+            } else {
+                return view('filtroA',compact('busqueda'));
+            }
         }
     }
+
 
       /*          Funciones de PDF            */
     
@@ -363,6 +376,4 @@ class controladorBD extends Controller
 
 
 }
-
-   
 
