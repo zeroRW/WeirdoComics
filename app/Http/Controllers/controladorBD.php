@@ -16,17 +16,12 @@ use Illuminate\Support\Facades\DB;
 class controladorBD extends Controller
 {
 
-    public function index(Request $req)
-    {   
-  
+    //public function index(Request $req){}
 
-     
+    public function indexComic(){
+        $consultaCo = DB::table('tb_comics')->get();
+        return view('consultarComic', compact('consultaCo'));
     }
-
-    //public function indexComic(){
-        //$consultaCo = DB::table('tb_comics')->get();
-        //return view('consultarComic', compact('consultaCo'));
-    //}
 
     public function createComic()
     {

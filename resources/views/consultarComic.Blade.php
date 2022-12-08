@@ -29,7 +29,7 @@
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
 
 
-        <form class="col-3 d-flex" role="search" action="{{route('categorias.consultarComic')}}" method="GET">
+        <form class="col-3 d-flex" role="search" action="" method="GET">
             <input class="form-control me-2" name="busqueda" type="search" placeholder="Search" aria-label="Search" value="">
             <button class="btn btn-outline-primary" type="submit">Buscar</button>
         </form>
