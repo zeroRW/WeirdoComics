@@ -28,50 +28,56 @@
     <div class="card card-body">
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
 
-        <div class="mb-3 row">
-            <label class="col-sm-1 col-form-label">Buscar:</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" placeholder="Filtrar Comic" name="buscar" style="width: 250px">
-            </div>
-        </div>
+
+        <form class="col-3 d-flex" role="search" action="" method="GET">
+            <input class="form-control me-2" name="busqueda" type="search" placeholder="Search" aria-label="Search" value="">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </form>
+        
+        <br>
+            
+
         <!-- Creacion de Tabla -->
         <table class="table table-bordered">
             <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Edición</th>
-                <th scope="col">Compañía</th>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edición</th>
+                    <th scope="col">Compañía</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">($) Compra</th>
                 <th scope="col">($) venta</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Opciones</th>
-              </tr>
-            </thead>
-              @foreach ($consultaCo as $item)
-              <tbody>
-                 <th scope="row">{{$item->idComics}}</th>
-                 <td>{{$item->nombre}}</td>
-                 <td>{{$item->edicionComic}}</td>
-                 <td>{{$item->compania}}</td>
-                 <td>{{$item->cantidad}}</td>
-                 <td>{{$item->precioCompra}}</td>
-                 <td>{{$item->precioVenta}}</td>
-                 <td>{{$item->fechaCo}}</td>
-                 <td>
-                  <a href="{{route('editCom',$item->idComics)}}" class="btn btn-outline-success mb-3">Editar</a>
-                  
-                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalEliminar{{$item->idComics}}">
-                    Eliminar
-                  </button>
-                  
-                 </td>
-               </tbody> 
-           @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($consultaCo as $item)
+            <tr>
+                <th scope="row">{{$item->idComics}}</th>
+                <td>{{$item->nombre}}</td>
+                <td>{{$item->edicionComic}}</td>
+                <td>{{$item->compania}}</td>
+                <td>{{$item->cantidad}}</td>
+                <td>{{$item->precioCompra}}</td>
+                <td>{{$item->precioVenta}}</td>
+                <td>{{$item->fechaCo}}</td>
+                <td>
+                    <a href="{{route('editCom',$item->idComics)}}" class="btn btn-outline-success mb-3">Editar</a>
+                    
+                    <button type="button" class="btn btn-outline-danger mb-3" data-bs-toggle="modal" data-bs-target="#modalEliminar{{$item->idComics}}">
+                        Eliminar
+                    </button>
+                    
+                </td>
+            </tr>
+            @endforeach
+        </tbody> 
         </table>
         <div>
         <a href="{{route('inve')}}"><button class="btn btn-success">INVENTARIO</button></a>
+    </div>
     </div>
 </div>
     

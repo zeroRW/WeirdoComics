@@ -3,7 +3,9 @@
 use App\Http\Controllers\controladorComics;
 use App\HTTP\Controllers\controladorBD;
 use App\HTTP\Controllers\controladorVendedorBD;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Mail\PedidoMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
 Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
+//Route::resource('categorias', [controladorBD::class]);
 Route::get('consultaCom',[controladorBD::class,'indexComic'])->name('consuComic');
 
 Route::get('editarCom/{id}',[controladorBD::class,'editComic'])->name('editCom');
@@ -97,6 +100,43 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 
 Route::post('redireqInicio', [controladorComics::class, '']);
 
+
 /*  INVENTARIO  */
 Route::get('inventario',[controladorBD::class,'inventario'])->name('inve');
 Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
+
+// CORREO 
+Route::get('email',function(){
+    $data = array(
+        'name' => 'Curso Laravel',
+    );
+
+    Mail::send('emails.welcome', $data, function($message){
+
+        $message->from('lopezz.alan134@gmail.com', 'Prueba Correo');
+
+        $message->to('lopezz.alan134@gmail.com')->subject('prueba de envio email');
+    });
+
+    return "Email enviado correctamente";
+});
+
+Route::get('mail', function(){
+    $correo = new PedidoMail;
+
+    Mail::to('lopezz.alan134@gmail.com')->send($correo);
+
+    return "Email enviado correctamente";
+
+});
+
+//PDF
+// test
+Route::get('pdf_d',[controladorBD::class, 'crear_pdf'])->name('view.pdf');
+
+// pdf pedido comic individual 
+Route::get('pedido/comic/{id}/{idC}/pdf',[controladorBD::class, 'pdf_comic'])->name('pedidoCo.pdf');
+
+// pdf pedido articulo individual 
+Route::get('pedido/articulo/{id}/{idC}/pdf',[controladorBD::class, 'pdf_articulo'])->name('pedidoArt.pdf');
+
