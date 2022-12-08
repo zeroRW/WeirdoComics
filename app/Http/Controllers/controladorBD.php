@@ -9,6 +9,7 @@ use App\Http\Requests\validador_Pedidos;
 use App\Http\Requests\validadorLogin;
 use App\Http\Requests\validadorProveedor;
 use App\Http\Requests\validadorRegistroUsuario;
+use App\Models\tb_comics;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;
@@ -16,14 +17,12 @@ use PDF;
 class controladorBD extends Controller
 {
 
-    public function indexComic()
-    {   
-   
-        $consultaCo = DB::table('tb_comics')->get();
+    //public function index(Request $req){}
 
+    public function indexComic(){
+        $consultaCo = DB::table('tb_comics')->get();
         return view('consultarComic', compact('consultaCo'));
     }
-
 
     public function createComic()
     {
@@ -272,6 +271,27 @@ class controladorBD extends Controller
         return redirect('pedidos/Articulo') -> with('Correcto','Bien');
     }
 
+
+    public function inventario()
+    {
+        $articulos = DB::table('tb_articulos')->get();
+        $comics = DB::table('tb_comics')->get();
+
+        return view('inventario',compact('articulos','comics'));
+    }
+
+    public function filtro(Request $req){
+        $producto = $req->input('Filtro');
+        
+
+        if (empty($producto)){
+            return redirect('inventario');
+        }
+    }
+
+
+}
+
      /*          Funciones de PDF            */
     
     public function pdf_comic($id, $idC){
@@ -345,3 +365,4 @@ class controladorBD extends Controller
     }
 
 }
+

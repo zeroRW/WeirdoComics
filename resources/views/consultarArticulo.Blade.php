@@ -94,8 +94,10 @@
               </div>
               </tr>
                 @endforeach
-              
         </table>
+        <div>
+          <a href="{{route('inve')}}"><button class="btn btn-success">INVENTARIO</button></a>
+        </div>
     </div>
 </div>
     

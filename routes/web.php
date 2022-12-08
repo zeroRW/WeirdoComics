@@ -37,7 +37,7 @@ Route::get('registrar',[controladorBD::class,'createComic'])->name('comics');
 
 Route::post('registrarCom', [controladorBD::class, 'storeComic'])->name('incert');
 
-//Route::resource('consultaCom', [controladorBD::class, 'indexComic']);
+//Route::resource('categorias', [controladorBD::class]);
 Route::get('consultaCom',[controladorBD::class,'indexComic'])->name('consuComic');
 
 Route::get('editarCom/{id}',[controladorBD::class,'editComic'])->name('editCom');
@@ -100,6 +100,11 @@ Route::delete('deleteArt/{id}',[controladorBD::class,'destroyArticulo'])->name('
 
 Route::post('redireqInicio', [controladorComics::class, '']);
 
+
+/*  INVENTARIO  */
+Route::get('inventario',[controladorBD::class,'inventario'])->name('inve');
+Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
+
 // CORREO 
 Route::get('email',function(){
     $data = array(
@@ -134,3 +139,4 @@ Route::get('pedido/comic/{id}/{idC}/pdf',[controladorBD::class, 'pdf_comic'])->n
 
 // pdf pedido articulo individual 
 Route::get('pedido/articulo/{id}/{idC}/pdf',[controladorBD::class, 'pdf_articulo'])->name('pedidoArt.pdf');
+
