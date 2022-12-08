@@ -107,6 +107,8 @@ Route::post('redireqInicio', [controladorComics::class, '']);
 Route::get('inventario',[controladorBD::class,'inventario'])->name('inve');
 Route::post('filtro',[controladorBD::class,'filtro'])->name('FilIn');
 
+Route::post('filtro2',[controladorBD::class,'filtro2'])->name('FilIn2');
+
 // CORREO 
 Route::get('email',function(){
     $data = array(
@@ -115,9 +117,9 @@ Route::get('email',function(){
 
     Mail::send('emails.welcome', $data, function($message){
 
-        $message->from('lopezz.alan134@gmail.com', 'Pedido');
+        $message->from('overhaulrew@gmail.com', 'Pedido');
 
-        $message->to('lopezz.alan134@gmail.com')->subject('Detalle del pedido:');
+        $message->to('overhaulrew@gmail.com')->subject('Detalle del pedido:');
     })->name('sendMail');
 
     return "Email enviado correctamente";
@@ -128,7 +130,7 @@ Route::get('correo',[controladorBD::class,'envioCorreo'])->name('correo.env');
 Route::get('mail', function(){
     $correo = new PedidoMail;
 
-    Mail::to('lopezz.alan134@gmail.com')->send($correo);
+    Mail::to('overhaulrew@gmail.com')->send($correo);
 
     return "Email enviado correctamente";
 

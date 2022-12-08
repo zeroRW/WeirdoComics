@@ -307,6 +307,27 @@ class controladorBD extends Controller
         }
     }
 
+    public function filtro2(Request $req){
+        $producto = $req->input('Filtro');
+        
+
+        if (empty($producto)){
+            return redirect('vventa');
+        } else{
+            $busqueda = DB::table('tb_articulos')->where('tipo',$producto)->get()->first();
+            if(empty($busqueda)){
+                $busqueda = DB::table('tb_comics')->where('nombre',$producto)->get()->first();
+                if(empty($busqueda)){
+                    return redirect('vventa');
+                } else {
+                    return view('ventasFiltro',compact('busqueda'));
+                }
+            } else {
+                return view('ventasFiltro',compact('busqueda'));
+            }
+        }
+    }
+
 
       /*          Funciones de PDF            */
     
@@ -415,10 +436,10 @@ class controladorBD extends Controller
            Mail::send('emails.welcome', $data, function($message){
     
             /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
-            $message->from('lopezz.alan134@gmail.com', 'Pedido');
+            $message->from('overhaulrew@gmail.com', 'Pedido');
     
             /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
-            $message->to('lopezz.alan134@gmail.com')->subject('Detalle del pedido:');
+            $message->to('overhaulrew@gmail.com')->subject('Detalle del pedido:');
         })->name('sendMail'); 
         }catch(Exception){
             return redirect('pedidos/Articulo')->with('Enviado','scs');
