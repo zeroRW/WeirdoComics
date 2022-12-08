@@ -82,7 +82,7 @@
             <td>{{$com->nombre}}</td>
             <td>{{$com->cantidad}}</td>
             <td>${{$com->precioVenta}}</td>
-            <td class="text-center"><a href=""><button class="btn btn-danger">Vender</button></a></td>          </tr>
+            <td class="text-center"><a href=""><button class="btn btn-danger">Vender</button></a></td></tr>
        @endforeach
       </tbody>
   </table>
@@ -121,7 +121,7 @@
         <td>{{$art->tipo}}</td>
         <td>{{$art->cantidad}}</td>
         <td>${{$art->precio_venta}}</td>
-        <td class="text-center"><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAgregar{{$art->idArticulo}}">Vender<i class="bi bi-file-plus"></i></button></td>
+        <td class="text-center"><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAgregar{{$art->idArticulo}}">Vender</button></td>
     </tr>
     @endforeach
   </tbody>
@@ -138,19 +138,6 @@
         <h5 class="modal-title" id="staticBackdropLabel">Realizar Venta</h5>
       </div>
       <div class="modal-body">
-
-          @if ($errors->any())
-  
-              @foreach ($errors->all() as $error)
-           
-              <div class="alert alert-danger alert-dimissible fade show" role="alert">
-               <strong> {{$error}} </strong>
-               <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Close"></button>
-             </div>
-  
-              @endforeach
-  
-          @endif
   
           <div class="card mb-4">
           
@@ -160,9 +147,8 @@
               
               <div class="card-body">
   
-                  <form action="" method="post" class="border">
-                   @csrf
-                      
+                  <form action="guardaVenta/A" method="post" class="border" id="formVA{{$art->idArticulo}}">
+                   @csrf         
                       <div class="mt-3">
                         <div><label class="form">Marca:</label></div>
                         <input class="form-control" type="text" disabled value="{{$art->marca}}">          
@@ -173,11 +159,11 @@
                       </div>
                       <div class="mb-3">
                           <div><label class="form">Precio($):</label></div>
-                          <input class="form-control" type="text" disabled value="{{$art->precio_venta}}" id="preV">
+                          <input class="form-control" type="text" disabled value="{{$art->precio_venta}}" id="preV{{$art->idArticulo}}">
                       </div>
                       <div class="mb-3">
                         <div><label class="form">Cantidad:</label></div>
-                        <input class="form-control" type="text" name="cantidad" value="" id="cantidad" oninput="calcular()">
+                        <input class="form-control" type="text" name="cantidad" value="" id="cantidad{{$art->idArticulo}}" oninput="calcular({{$art->idArticulo}})">
                         <p class="text-danger">{{$errors->first('cantidad')}}</p>
                       </div>
                       <div class="mb-3">
@@ -185,26 +171,17 @@
                         <input class="form-control" type="text" name="empleado" value="">
                         <p class="text-danger">{{$errors->first('empleado')}}</p>
                       </div>
-                      <script type="text/javascript">
-                        function calcular(){
-                            try{   
-                                var a = parseFloat(document.getElementById('cantidad').value) || 0;
-                                var b = parseFloat(document.getElementById('preV').value);
-                      
-                                document.getElementById('totalV').value = a * b;
-                            } catch (e){}
-                        }
-                      </script>
+            
                       <div class="mb-3">
                         <div><label class="form">Total($):</label></div>
-                        <input class="form-control" type="text" name="total" value="" id="totalV" readonly="true">
+                        <input class="form-control" type="text" name="total" value="" id="totalV{{$art->idArticulo}}" readonly="true">
                         <p class="text-danger">{{$errors->first('total')}}</p>
                       </div>
                </div>
                
               <div class="modal-footer">
                   <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Cofirmar</button>
-                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="resetFormA({{$art->idArticulo}})">Cancelar</button>
                 </form>
           </div>
   
@@ -214,5 +191,24 @@
   </div>
 </div>
 @endforeach
+<script type="text/javascript">
+   
+  function resetFormA(id){
+    const form = document.getElementById("formVA"+id);
+    form.reset();
+  }
+  
+  function calcular(id){
+      try{   
+          let a = parseFloat(document.getElementById('cantidad'+id).value) || 0;
+          let b = parseFloat(document.getElementById('preV'+id).value);
+
+          document.getElementById('totalV'+id).value = a * b;
+
+          return console.log(a*b);
+
+      } catch (e){}
+  }
+</script>
 
 @endsection

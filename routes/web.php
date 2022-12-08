@@ -85,6 +85,8 @@ Route::get('VUV', [controladorComics::class, 'ventaUV'])->name('VUV');
 Route::get('vventa',[controladorBD::class,'ventasMostrador'])->name('Vventas');
 Route::get('carVen', [controladorComics::class, 'vistaCarrito'])->name('CaVen');
 
+/* VENTAS */
+Route::post('guardaVenta/A',[controladorBD::class,'procesarVenta']) ->name('proceso.venta');
 
 /* RUTAS POST*/
 Route::post('guardaComic',[controladorComics::class,'procesarComic']) ->name('GComic');
