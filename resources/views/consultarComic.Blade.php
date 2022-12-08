@@ -29,10 +29,14 @@
         <div class="display-6 mt-3 mb-3 text-center">Consultar Comics</div>
 
 
-        <form class="col-3 d-flex" role="search" action="" method="GET">
-            <input class="form-control me-2" name="busqueda" type="search" placeholder="Search" aria-label="Search" value="">
-            <button class="btn btn-outline-primary" type="submit">Buscar</button>
-        </form>
+        <nav class="navbar">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="buscar por nombre..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+            </div>
+          </nav>
         
         <br>
             

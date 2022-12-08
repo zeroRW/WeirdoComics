@@ -290,7 +290,7 @@ class controladorBD extends Controller
     }
 
 
-}
+
 
      /*          Funciones de PDF            */
     
