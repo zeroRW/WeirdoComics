@@ -300,12 +300,12 @@ class controladorBD extends Controller
             }
         }
     }
-<<<<<<< HEAD
-}
-=======
 
 
-}
+
+
+
+
 
      /*          Funciones de PDF            */
     
@@ -381,4 +381,4 @@ class controladorBD extends Controller
 
 }
 
->>>>>>> c19af4174bfafe5ee1f3480feea89f340e3c131d
+

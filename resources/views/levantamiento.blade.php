@@ -56,8 +56,9 @@
                     <p class="text-danger">{{$errors->first('nmCantidad')}}</p> 
                 </div>               
             </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-success">Guardar</button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-success"><strong>Guardar</strong></button>
+                <a href="{{route('levanPed')}}" class="btn btn-danger">Regresar</a>
             </div>        
         </form>
         </div>
