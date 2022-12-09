@@ -453,6 +453,28 @@ class controladorBD extends Controller
             $message->to('overhaulrew@gmail.com')->subject('Detalle del pedido:');
         })->name('sendMail'); 
         }catch(Exception){
+            return redirect('pedidos/Comic')->with('Enviado','scs');
+        }
+        
+    
+        
+    }
+
+    public function envioCorreo2(){
+        $data = array(
+            'name' => 'WeirdoComics',
+        );
+    
+        try{
+           Mail::send('emails.welcome', $data, function($message){
+    
+            /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
+            $message->from('overhaulrew@gmail.com', 'Pedido');
+    
+            /* Donde esta mi correo poner el correo con el que hicieron la cuenta*/
+            $message->to('overhaulrew@gmail.com')->subject('Detalle del pedido:');
+        })->name('sendMail'); 
+        }catch(Exception){
             return redirect('pedidos/Articulo')->with('Enviado','scs');
         }
         

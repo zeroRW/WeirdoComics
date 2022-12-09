@@ -31,6 +31,7 @@
                     <p class="text-danger">{{$errors->first('txtCompañia')}}</p>
                 </div>
             </div>
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Cantidad:</label>
                 <div class="col-sm-3">
@@ -39,17 +40,26 @@
                 </div>
                 <label class="col-sm-3 col-form-label">($) Compra:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Precio compra" name="txtCompra" value="{{$consultaCoEdi->precioCompra}}">
+                    <input type="text" class="form-control" placeholder="Precio compra" name="txtCompra" value="{{$consultaCoEdi->precioCompra}}" id="compra" oninput="calcular()" step="0.01">
                     <p class="text-danger">{{$errors->first('txtCompra')}}</p>
                 </div>
-            </div>
-            <div class="mb-3 row">
+                
+                <script type="text/javascript">
+                    function calcular(){
+                        try{
+                            var a = parseFloat(document.getElementById('compra').value) || 0;
+                            document.getElementById('venta').value = a + a*(40/100) ;
+                        } catch (e){}
+                    }
+                </script>
+
                 <label class="col-sm-2 col-form-label">($) Venta:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Precio venta" name="txtVenta" value="{{$consultaCoEdi->precioVenta}}">
+                    <input type="text" class="form-control" placeholder="Precio venta" name="txtVenta" value="{{$consultaCoEdi->precioVenta}}" id="venta" step="0.01" readonly="true">
                     <p class="text-danger">{{$errors->first('txtVenta')}}</p>
                 </div>
             </div>
+
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">Fecha:</label>
                 <div class="col-sm-10">

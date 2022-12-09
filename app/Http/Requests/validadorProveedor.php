@@ -29,8 +29,8 @@ class validadorProveedor extends FormRequest
             'txtDireccion'=> 'required',
             'txtPais'=> 'required',
             'txtContacto'=> 'required',
-            'txtNumero'=> 'required|numeric|Digits_between:10,num',
-            'txtCelular'=> 'required|numeric|Digits_between:10,num',
+            'txtNumero'=> 'required|numeric|Digits_between:10,num|max:10|min:10',
+            'txtCelular'=> 'required|numeric|Digits_between:10,num|max:10|min:10',
             'txtCorreo'=> 'required|email',
         ];
     }

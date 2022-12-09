@@ -138,6 +138,17 @@ Route::get('mail', function(){
 
 });
 
+Route::get('correoo',[controladorBD::class,'envioCorreo2'])->name('correo.envv');
+
+Route::get('mail', function(){
+    $correo = new PedidoMail;
+
+    Mail::to('overhaulrew@gmail.com')->send($correo);
+
+    return "Email enviado correctamente";
+
+});
+
 //PDF
 // test
 Route::get('pdf_d',[controladorBD::class, 'crear_pdf'])->name('view.pdf');

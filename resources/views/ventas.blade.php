@@ -31,7 +31,7 @@
   <div class="mb-3 row">
       <label class="col-sm-1 col-form-label">Buscar:</label>
       <div class="col-sm-3">
-          <input type="text" class="form-control" placeholder="Filtrar producto" name="Filtro">
+          <input type="text" class="form-control" placeholder="Nombre completo del producto" name="Filtro">
       </div>
       <button class="col-sm-1 btn btn-dark me-3">Filtrar</button>
   </div>
